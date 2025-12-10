@@ -49,6 +49,11 @@ params:
       link: /
     width: wide
   externalLinkDecoration: true
+  blog:
+    list:
+      displayTags: true
+  toc:
+    displayTags: true
 
 enableEmoji: true
 enableInlineShortcodes: true
