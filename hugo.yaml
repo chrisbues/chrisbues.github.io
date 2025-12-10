@@ -17,10 +17,10 @@ outputs:
 menu:
   main:
     - name: M365
-      pageRef: /docs/M365
+      pageRef: /docs/m365
       weight: 1
     - name: Purview
-      pageRef: /docs/Purview
+      pageRef: /docs/purview
       weight: 2
     - name: Search
       weight: 3

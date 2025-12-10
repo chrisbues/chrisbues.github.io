@@ -13,6 +13,5 @@ I've always struggled with *what* to take notes in. I landed on [Obsidian](https
 
 I'm currently a Microsoft Architect at [Patriot Consulting](https://www.patriotconsulting.com/), specializing in Security, Compliance and Identity. You can find me in all the usual places like [LinkedIn](https://www.linkedin.com/in/chrisbues/)
 
-
 <!-- {{< recent-blog-posts count="3" >}} -->
 
