@@ -1,0 +1,66 @@
+{{- $pages := .Pages -}}
+{{- if .IsHome -}}
+  {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- end -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if ne .Title site.Title }}{{ with .Title }}{{.}} on {{ end }}{{ end }}{{ site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ site.Title }}</description>
+    <generator>Hugo</generator>
+    <language>{{ site.Language.LanguageCode }}</language>
+    {{ with site.Copyright }}<copyright>{{ . }}</copyright>{{ end }}
+    {{ if not .Date.IsZero }}<lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{- with site.Params.images -}}
+    <image>
+      <url>{{ index . 0 | absURL }}</url>
+      <link>{{ $.Permalink }}</link>
+    </image>
+    {{- end }}
+    {{ range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      {{ with site.Params.author.name }}<author>{{ . }}</author>{{ end }}
+      <guid>{{ .Permalink }}</guid>
+      <description>
+        {{- $description := .Description -}}
+        {{- with .Params.images -}}
+          {{- $image := . -}}
+          {{- with resources.Get (index . 0) -}}
+            {{- /* Check if image is SVG before attempting to resize */ -}}
+            {{- if eq .MediaType.SubType "svg" -}}
+              {{- /* SVG - use as-is, no resizing */ -}}
+              {{- $description = printf "%s&lt;img src=\"%s\" alt=\"%s\" /&gt;" $description .Permalink $.Title -}}
+            {{- else -}}
+              {{- /* Raster image - safe to resize */ -}}
+              {{- $image = .Resize "480x" -}}
+              {{- $description = printf "%s&lt;img src=\"%s\" alt=\"%s\" /&gt;" $description $image.Permalink $.Title -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else -}}
+          {{- /* Try to get featured image from page resources */ -}}
+          {{- with .Resources.GetMatch "{featured*,cover*,thumbnail*}" -}}
+            {{- /* Check if image is SVG before attempting to resize */ -}}
+            {{- if eq .MediaType.SubType "svg" -}}
+              {{- /* SVG - use as-is, no resizing */ -}}
+              {{- $description = printf "%s&lt;img src=\"%s\" alt=\"%s\" /&gt;" $description .Permalink $.Title -}}
+            {{- else -}}
+              {{- /* Raster image - safe to resize */ -}}
+              {{- $image := .Resize "480x" -}}
+              {{- $description = printf "%s&lt;img src=\"%s\" alt=\"%s\" /&gt;" $description $image.Permalink $.Title -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $description | html -}}
+      </description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

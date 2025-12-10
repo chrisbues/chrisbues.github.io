@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Purview on Chris Bues</title>
+    <link>http://localhost:1313/tags/purview/</link>
+    <description>Recent content in Purview on Chris Bues</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    
+    
+    <item>
+      <title>SITs for Table-based Data</title>
+      <link>http://localhost:1313/docs/purview/sits-for-table-based-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/docs/purview/sits-for-table-based-data/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

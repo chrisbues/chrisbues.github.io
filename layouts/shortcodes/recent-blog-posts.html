@@ -1,0 +1,9 @@
+{{- /* Recent Blog Posts Shortcode - displays latest blog posts in Hextra card style */ -}}
+{{- /* Usage: {{< recent-blog-posts count="6" >}} */ -}}
+
+{{- $count := 6 -}}
+{{- if .Get "count" -}}
+  {{- $count = .Get "count" | int -}}
+{{- end -}}
+
+{{- partial "recent-blog-posts.html" (dict "count" $count "context" .Page) -}}

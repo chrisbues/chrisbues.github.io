@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Chris Bues</title>
+    <link>http://localhost:1313/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Chris Bues</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    
+    <lastBuildDate>Fri, 24 Oct 2025 00:00:00 +0000</lastBuildDate>
+    
+    <item>
+      <title>Getting Started with Hextra</title>
+      <link>http://localhost:1313/blog/getting-started/</link>
+      <pubDate>Fri, 24 Oct 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/getting-started/</guid>
+      <description>Learn how to set up and customize your Hextra site with featured images and beautiful blog layouts.&amp;lt;img src=&#34;http://localhost:1313/blog/getting-started/featured.svg&#34; alt=&#34;Tutorial&#34; /&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,176 @@
+{{ define "main" }}
+<div class="hx:mx-auto hx:flex hextra-max-page-width">
+  <article class="hx:w-full hx:break-words hx:flex hx:min-h-[calc(100vh-var(--navbar-height))] hx:min-w-0 hx:justify-center hx:pb-8 hx:pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 md:hx:px-12">
+      
+      {{/* Blog Header */}}
+      <div class="hx:mb-8">
+        <h1 class="hx:mt-2 hx:text-4xl hx:font-bold hx:tracking-tight hx:text-slate-900 dark:hx:text-slate-100">
+          {{ .Title }}
+        </h1>
+        {{ with .Description }}
+          <p class="hx:mt-4 hx:text-xl hx:text-slate-700 dark:hx:text-slate-300">
+            {{ . }}
+          </p>
+        {{ end }}
+      </div>
+
+      {{/* Blog Posts Grid */}}
+      {{ $pages := .Pages }}
+      {{ if .Site.Params.blog.list.sortBy }}
+        {{ $sortBy := .Site.Params.blog.list.sortBy }}
+        {{ $sortOrder := .Site.Params.blog.list.sortOrder | default "desc" }}
+        {{ if eq $sortOrder "desc" }}
+          {{ $pages = sort $pages $sortBy "desc" }}
+        {{ else }}
+          {{ $pages = sort $pages $sortBy }}
+        {{ end }}
+      {{ end }}
+
+      {{ $paginator := .Paginate $pages (.Site.Params.blog.list.pagerSize | default 10) }}
+      
+      <div class="hx:grid hx:gap-6 md:hx:grid-cols-2 lg:hx:grid-cols-3">
+        {{ range $paginator.Pages }}
+          {{ $postTitle := .Title }}
+          {{ $postDescription := .Description | default .Summary }}
+          
+          <article class="hx:group hx:relative hx:flex hx:flex-col hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:bg-white hx:transition-all hx:duration-200 hover:hx:shadow-lg dark:hx:border-neutral-700 dark:hx:bg-neutral-800 dark:hover:hx:border-neutral-600">
+            <a href="{{ .RelPermalink }}" class="hx:flex hx:flex-col hx:h-full">
+              
+              {{/* Featured Image Section */}}
+              {{ $featuredImage := "" }}
+              {{ $imageProcessed := false }}
+              
+              {{/* Try to get image from page resources first (page bundle) */}}
+              {{ with .Resources.GetMatch "{featured*,cover*,thumbnail*}" }}
+                {{/* Check if image is SVG (vector) or raster */}}
+                {{ if eq .MediaType.SubType "svg" }}
+                  {{/* SVG - use as-is, no processing needed */}}
+                  {{ $featuredImage = .RelPermalink }}
+                {{ else }}
+                  {{/* Raster image - process with Hugo */}}
+                  {{ $image := .Resize "800x q80 webp" }}
+                  {{ $featuredImage = $image.RelPermalink }}
+                  {{ $imageProcessed = true }}
+                {{ end }}
+              {{ else }}
+                {{/* Fallback to params.featuredImage */}}
+                {{ with $.Params.featuredImage }}
+                  {{ $featuredImage = . }}
+                {{ end }}
+              {{ end }}
+              
+              {{/* Display Featured Image */}}
+              {{ if $featuredImage }}
+                <div class="hx:aspect-video hx:w-full hx:overflow-hidden hx:bg-gray-100 dark:hx:bg-neutral-900">
+                  <img 
+                    src="{{ $featuredImage }}" 
+                    alt="{{ $postTitle }}"
+                    class="hx:h-full hx:w-full hx:object-cover hx:transition-transform hx:duration-300 group-hover:hx:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              {{ else }}
+                {{/* Fallback gradient when no image */}}
+                <div class="hx:aspect-video hx:w-full hx:bg-gradient-to-br hx:from-blue-500 hx:to-purple-600 dark:hx:from-blue-600 dark:hx:to-purple-700"></div>
+              {{ end }}
+
+              {{/* Content Section */}}
+              <div class="hx:flex hx:flex-1 hx:flex-col hx:p-5">
+                
+                {{/* Post Title */}}
+                <h3 class="hx:text-xl hx:font-semibold hx:text-gray-900 hx:line-clamp-2 group-hover:hx:text-blue-600 dark:hx:text-neutral-100 dark:group-hover:hx:text-blue-400">
+                  {{ $postTitle }}
+                </h3>
+
+                {{/* Post Meta */}}
+                <div class="hx:mt-2 hx:flex hx:flex-wrap hx:items-center hx:gap-2 hx:text-sm hx:text-gray-600 dark:hx:text-gray-400">
+                  {{/* Date */}}
+                  <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}
+                  </time>
+                  
+                  {{/* Reading Time */}}
+                  {{ if .ReadingTime }}
+                    <span class="hx:text-gray-400 dark:hx:text-gray-600">•</span>
+                    <span>{{ .ReadingTime }} min read</span>
+                  {{ end }}
+                </div>
+
+                {{/* Tags */}}
+                {{ if and (.Params.tags) (.Site.Params.blog.list.displayTags) }}
+                  <div class="hx:mt-3 hx:flex hx:flex-wrap hx:gap-2">
+                    {{ range first 3 .Params.tags }}
+                      <span class="hx:inline-flex hx:items-center hx:rounded-full hx:bg-blue-50 hx:px-2.5 hx:py-0.5 hx:text-xs hx:font-medium hx:text-blue-700 dark:hx:bg-blue-900/30 dark:hx:text-blue-400">
+                        {{ . }}
+                      </span>
+                    {{ end }}
+                  </div>
+                {{ end }}
+
+                {{/* Post Description */}}
+                {{ if $postDescription }}
+                  <p class="hx:mt-3 hx:flex-1 hx:text-sm hx:text-gray-600 hx:line-clamp-3 dark:hx:text-gray-300">
+                    {{ $postDescription | plainify | truncate 150 }}
+                  </p>
+                {{ end }}
+
+                {{/* Read More Link */}}
+                <div class="hx:mt-4 hx:flex hx:items-center hx:text-sm hx:font-medium hx:text-blue-600 group-hover:hx:text-blue-700 dark:hx:text-blue-400 dark:group-hover:hx:text-blue-300">
+                  Read more
+                  <svg class="hx:ml-1 hx:h-4 hx:w-4 hx:transition-transform group-hover:hx:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </article>
+        {{ end }}
+      </div>
+
+      {{/* Pagination */}}
+      {{ if gt $paginator.TotalPages 1 }}
+        <nav class="hx:mt-12 hx:flex hx:items-center hx:justify-between hx:border-t hx:border-gray-200 hx:px-4 sm:hx:px-0 dark:hx:border-neutral-700">
+          <div class="hx:-mt-px hx:flex hx:w-0 hx:flex-1">
+            {{ if $paginator.HasPrev }}
+              <a href="{{ $paginator.Prev.URL }}" class="hx:inline-flex hx:items-center hx:border-t-2 hx:border-transparent hx:pr-1 hx:pt-4 hx:text-sm hx:font-medium hx:text-gray-500 hover:hx:border-gray-300 hover:hx:text-gray-700 dark:hx:text-gray-400 dark:hover:hx:border-neutral-600 dark:hover:hx:text-gray-200">
+                <svg class="hx:mr-3 hx:h-5 hx:w-5 hx:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                </svg>
+                Previous
+              </a>
+            {{ end }}
+          </div>
+          
+          <div class="hx:hidden md:hx:-mt-px md:hx:flex">
+            {{ range $paginator.Pagers }}
+              {{ if eq . $paginator }}
+                <span class="hx:inline-flex hx:items-center hx:border-t-2 hx:border-blue-500 hx:px-4 hx:pt-4 hx:text-sm hx:font-medium hx:text-blue-600 dark:hx:border-blue-400 dark:hx:text-blue-400">
+                  {{ .PageNumber }}
+                </span>
+              {{ else }}
+                <a href="{{ .URL }}" class="hx:inline-flex hx:items-center hx:border-t-2 hx:border-transparent hx:px-4 hx:pt-4 hx:text-sm hx:font-medium hx:text-gray-500 hover:hx:border-gray-300 hover:hx:text-gray-700 dark:hx:text-gray-400 dark:hover:hx:border-neutral-600 dark:hover:hx:text-gray-200">
+                  {{ .PageNumber }}
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+          
+          <div class="hx:-mt-px hx:flex hx:w-0 hx:flex-1 hx:justify-end">
+            {{ if $paginator.HasNext }}
+              <a href="{{ $paginator.Next.URL }}" class="hx:inline-flex hx:items-center hx:border-t-2 hx:border-transparent hx:pl-1 hx:pt-4 hx:text-sm hx:font-medium hx:text-gray-500 hover:hx:border-gray-300 hover:hx:text-gray-700 dark:hx:text-gray-400 dark:hover:hx:border-neutral-600 dark:hover:hx:text-gray-200">
+                Next
+                <svg class="hx:ml-3 hx:h-5 hx:w-5 hx:text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            {{ end }}
+          </div>
+        </nav>
+      {{ end }}
+
+    </main>
+  </article>
+</div>
+{{ end }}

@@ -1,0 +1,123 @@
+{{- /* Recent Blog Posts Component - Displays recent blog posts in Hextra card grid style */ -}}
+{{- /* Parameters: count (number of posts), context (page context) */ -}}
+
+{{- $count := 6 -}}
+{{- if isset . "count" -}}
+  {{- $count = .count -}}
+{{- end -}}
+
+{{- $context := .context -}}
+
+{{/* Get recent blog posts */}}
+{{ $posts := where $context.Site.RegularPages "Type" "blog" }}
+{{ $posts = $posts | first $count }}
+
+{{ if gt (len $posts) 0 }}
+<div class="hx:mt-12 hx:mb-12">
+  {{/* Section Header */}}
+  <div class="hx:mb-8">
+    <h2 class="hx:text-3xl hx:font-bold hx:tracking-tight hx:text-slate-900 dark:hx:text-slate-100">
+      Latest from the Blog
+    </h2>
+    <p class="hx:mt-2 hx:text-lg hx:text-slate-600 dark:hx:text-slate-400">
+      Recent articles, tutorials, and updates
+    </p>
+  </div>
+
+  {{/* Blog Posts Grid - Hextra Style Cards */}}
+  <div class="hextra-cards hx:mt-4 hx:gap-4 hx:grid not-prose" style="--rows: 3;">
+    {{ range $posts }}
+      {{ $postTitle := .Title }}
+      {{ $postDescription := .Description | default .Summary | plainify | truncate 120 }}
+      {{ $postDate := .Date.Format "January 2, 2006" }}
+      
+      {{/* Get Featured Image */}}
+      {{ $featuredImage := "" }}
+      {{ with .Resources.GetMatch "{featured*,cover*,thumbnail*}" }}
+        {{/* Check if SVG or raster */}}
+        {{ if eq .MediaType.SubType "svg" }}
+          {{ $featuredImage = .RelPermalink }}
+        {{ else }}
+          {{ $image := .Resize "800x q80 webp" }}
+          {{ $featuredImage = $image.RelPermalink }}
+        {{ end }}
+      {{ else }}
+        {{/* Fallback to params */}}
+        {{ with $.Params.featuredImage }}
+          {{ $featuredImage = . }}
+        {{ end }}
+      {{ end }}
+
+      {{/* Card */}}
+      <a 
+        class="hextra-card hx:group hx:flex hx:flex-col hx:justify-start hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:text-current hx:no-underline dark:hx:shadow-none hover:hx:shadow-gray-100 dark:hover:hx:shadow-none hx:shadow-gray-100 active:hx:shadow-sm active:hx:shadow-gray-200 hx:transition-all hx:duration-200 hover:hx:border-gray-300 dark:hx:border-neutral-700 dark:hover:hx:border-neutral-500"
+        href="{{ .RelPermalink }}"
+      >
+        {{/* Featured Image or Gradient */}}
+        {{ if $featuredImage }}
+          <div class="hx:aspect-[2/1] hx:w-full hx:overflow-hidden hx:bg-gray-100 dark:hx:bg-neutral-900">
+            <img 
+              src="{{ $featuredImage }}" 
+              alt="{{ $postTitle }}"
+              class="hx:h-full hx:w-full hx:object-cover hx:transition-transform hx:duration-300 group-hover:hx:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        {{ else }}
+          {{/* Gradient fallback */}}
+          <div class="hx:aspect-[2/1] hx:w-full hx:bg-gradient-to-br hx:from-blue-500 hx:to-purple-600 dark:hx:from-blue-600 dark:hx:to-purple-700"></div>
+        {{ end }}
+
+        {{/* Card Content */}}
+        <div class="hx:flex hx:flex-col hx:flex-1 hx:p-5">
+          {{/* Post Title */}}
+          <h3 class="hx:text-lg hx:font-semibold hx:text-gray-700 group-hover:hx:text-gray-900 dark:hx:text-neutral-300 dark:group-hover:hx:text-neutral-50 hx:line-clamp-2">
+            {{ $postTitle }}
+          </h3>
+
+          {{/* Date & Tags */}}
+          <div class="hx:mt-2 hx:flex hx:flex-wrap hx:items-center hx:gap-2">
+            <time class="hx:text-sm hx:text-gray-500 dark:hx:text-gray-400" datetime="{{ .Date.Format "2006-01-02" }}">
+              {{ $postDate }}
+            </time>
+            {{ if .Params.tags }}
+              {{ $tag := index .Params.tags 0 }}
+              <span class="hx:text-gray-400 dark:hx:text-gray-600">•</span>
+              <span class="hx:text-sm hx:text-gray-500 dark:hx:text-gray-400">
+                {{ $tag }}
+              </span>
+            {{ end }}
+          </div>
+
+          {{/* Description */}}
+          <p class="hx:mt-3 hx:flex-1 hx:text-sm hx:text-gray-600 dark:hx:text-gray-400 hx:line-clamp-3">
+            {{ $postDescription }}
+          </p>
+
+          {{/* Read More Arrow */}}
+          <div class="hx:mt-3 hx:flex hx:items-center hx:text-sm hx:font-medium hx:text-blue-600 dark:hx:text-blue-400">
+            Read more
+            <svg class="hx:ml-1 hx:h-4 hx:w-4 hx:transition-transform group-hover:hx:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    {{ end }}
+  </div>
+
+  {{/* View All Link */}}
+  <div class="hx:mt-8 hx:text-center">
+    <a 
+      href="/blog/" 
+      class="hx:inline-flex hx:items-center hx:gap-2 hx:text-blue-600 hover:hx:text-blue-700 dark:hx:text-blue-400 dark:hover:hx:text-blue-300 hx:font-medium hx:transition-colors"
+    >
+      View all posts
+      <svg class="hx:h-5 hx:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</div>
+{{ end }}
