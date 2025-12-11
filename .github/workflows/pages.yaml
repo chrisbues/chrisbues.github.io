@@ -58,6 +58,18 @@ jobs:
           hugo \
             --gc --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Add file to generated public output
+        # Ensure this runs if the build step ran (and still runs even if previous step failed)
+        run: |
+          # If you have a file in the repo to include, place it under `.github/pages-files/`.
+          # This workflow will copy `./.github/pages-files/*` into `./public/` when present.
+          SRC_DIR="./.github/pages-files"
+          if [ -d "$SRC_DIR" ] && [ "$(ls -A "$SRC_DIR")" ]; then
+            echo "Copying files from $SRC_DIR into ./public/"
+            cp -a "$SRC_DIR"/. ./public/
+          else
+            echo "No files in $SRC_DIR; 
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
