@@ -15,6 +15,5 @@ I'm currently a Microsoft Architect at [Patriot Consulting](https://www.patriotc
 
 <!-- {{< recent-blog-posts count="3" >}} -->
 
-
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-8aaefd1b-88de-434a-9903-f7184afafceb" data-elfsight-app-lazy></div>
