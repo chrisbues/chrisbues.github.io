@@ -14,3 +14,7 @@ I've always struggled with *what* to take notes in. I landed on [Obsidian](https
 I'm currently a Microsoft Architect at [Patriot Consulting](https://www.patriotconsultingtech.com/), specializing in Security, Compliance and Identity. You can find me in all the usual places like [LinkedIn](https://www.linkedin.com/in/chrisbues/)
 
 <!-- {{< recent-blog-posts count="3" >}} -->
+
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-8aaefd1b-88de-434a-9903-f7184afafceb" data-elfsight-app-lazy></div>

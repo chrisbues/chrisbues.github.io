@@ -37,6 +37,12 @@ menu:
       params:
         icon: github
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+
 params:
   page:
     # full (100%), wide (90rem), normal (1280px)
