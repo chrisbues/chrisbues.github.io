@@ -1,15 +1,16 @@
 {{ define "main" }}
-<main class="flex min-h-[60vh] items-center justify-center px-4">
-    <div class="mx-auto w-full max-w-xl text-center">
-        <p class="text-sm font-semibold text-sky-500 dark:text-sky-400">
+<section class="flex min-h-[60vh] items-center px-4">
+    <div class="mx-auto w-full max-w-xl">
+
+        <p class="text-sm font-semibold text-sky-500 dark:text-sky-400 text-center">
             404 · Page not found
         </p>
 
-        <h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl">
+        <h1 class="mt-4 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl text-center">
             This page doesn’t exist.
         </h1>
 
-        <p class="mt-4 text-base text-slate-600 dark:text-slate-400">
+        <p class="mt-4 text-base text-slate-600 dark:text-slate-400 text-center">
             The URL might be incorrect, or the page may have been moved or deleted.
         </p>
 
@@ -25,10 +26,11 @@
             </a>
         </div>
 
-        <div class="mt-8 text-xs text-slate-400 dark:text-slate-500">
+        <div class="mt-8 text-xs text-slate-400 dark:text-slate-500 text-center">
             Requested URL:
             <code class="break-all">{{ .Permalink }}</code>
         </div>
+
     </div>
-</main>
+</section>
 {{ end }}
