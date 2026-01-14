@@ -1,0 +1,259 @@
+{{- $id := printf "gridjs-md-%d" (now.UnixNano) -}}
+{{- $title := .Get "title" | default "" -}}
+{{- $search := .Get "search" | default "true" -}}
+{{- $sort := .Get "sort" | default "true" -}}
+{{- $pagination := .Get "pagination" | default "" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $resizable := .Get "resizable" | default "false" -}}
+{{- $fixedHeader := .Get "fixedHeader" | default "false" -}}
+{{- $wide := .Get "wide" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{/* Build wide class */}}
+{{- $wideClass := "" -}}
+{{- if eq $wide "true" -}}
+  {{- $wideClass = "gridjs-hextra-wide" -}}
+{{- else if eq $wide "full" -}}
+  {{- $wideClass = "gridjs-hextra-fullwidth" -}}
+{{- end -}}
+
+{{/* Get inner content (markdown table) */}}
+{{- $rawContent := .Inner | chomp -}}
+
+{{/* Parse the markdown table */}}
+{{- $lines := split $rawContent "\n" -}}
+{{- $columns := slice -}}
+{{- $columnConfigs := slice -}}
+{{- $rows := slice -}}
+{{- $headerParsed := false -}}
+{{- $separatorFound := false -}}
+
+{{- range $index, $line := $lines -}}
+  {{- $trimmedLine := trim $line " \t\r" -}}
+  
+  {{/* Skip empty lines */}}
+  {{- if $trimmedLine -}}
+    
+    {{/* Check if this is a separator line (|---|---|) */}}
+    {{- $isSeparator := findRE "^\\|?[\\s-:|]+\\|?$" $trimmedLine -}}
+    
+    {{- if $isSeparator -}}
+      {{- $separatorFound = true -}}
+    {{- else -}}
+      
+      {{/* Remove leading/trailing pipes and split by pipe */}}
+      {{- $cleanLine := $trimmedLine -}}
+      {{- if hasPrefix $cleanLine "|" -}}
+        {{- $cleanLine = substr $cleanLine 1 -}}
+      {{- end -}}
+      {{- if hasSuffix $cleanLine "|" -}}
+        {{- $cleanLine = substr $cleanLine 0 (sub (len $cleanLine) 1) -}}
+      {{- end -}}
+      
+      {{- $cells := split $cleanLine "|" -}}
+      {{- $cleanCells := slice -}}
+      
+      {{- range $cells -}}
+        {{- $cleanCells = $cleanCells | append (trim . " \t") -}}
+      {{- end -}}
+      
+      {{- if not $headerParsed -}}
+        {{/* First non-separator row is the header */}}
+        {{- range $cleanCells -}}
+          {{- $cellContent := . -}}
+          {{- $colConfig := dict "name" $cellContent -}}
+          
+          {{/* Check for inline config syntax: "Column Name {width=150px,wrap=nowrap}" */}}
+          {{- $configMatch := findRE "^(.+?)\\s*\\{([^}]+)\\}\\s*$" $cellContent -}}
+          {{- if $configMatch -}}
+            {{- $parts := findRE "^(.+?)\\s*\\{([^}]+)\\}\\s*$" $cellContent 1 -}}
+            {{/* Extract name and config string */}}
+            {{- $nameMatch := replaceRE "^(.+?)\\s*\\{[^}]+\\}\\s*$" "$1" $cellContent -}}
+            {{- $configStr := replaceRE "^.+?\\s*\\{([^}]+)\\}\\s*$" "$1" $cellContent -}}
+            
+            {{- $colConfig = dict "name" (trim $nameMatch " ") -}}
+            
+            {{/* Parse config options */}}
+            {{- $configParts := split $configStr "," -}}
+            {{- range $configParts -}}
+              {{- $kv := split . "=" -}}
+              {{- if eq (len $kv) 2 -}}
+                {{- $key := trim (index $kv 0) " " -}}
+                {{- $val := trim (index $kv 1) " " -}}
+                {{- if eq $key "width" -}}
+                  {{- $colConfig = merge $colConfig (dict "width" $val) -}}
+                {{- else if eq $key "wrap" -}}
+                  {{- $colConfig = merge $colConfig (dict "wrap" $val) -}}
+                {{- else if eq $key "sort" -}}
+                  {{- if eq $val "false" -}}
+                    {{- $colConfig = merge $colConfig (dict "sort" false) -}}
+                  {{- end -}}
+                {{- else if eq $key "hidden" -}}
+                  {{- if eq $val "true" -}}
+                    {{- $colConfig = merge $colConfig (dict "hidden" true) -}}
+                  {{- end -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          
+          {{- $columns = $columns | append (index $colConfig "name") -}}
+          {{- $columnConfigs = $columnConfigs | append $colConfig -}}
+        {{- end -}}
+        {{- $headerParsed = true -}}
+      {{- else if $separatorFound -}}
+        {{/* Data rows come after the separator - wrap in dict to prevent flattening */}}
+        {{- $rows = $rows | append (dict "cells" $cleanCells) -}}
+      {{- end -}}
+      
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Validate we got data */}}
+{{- if not $columns -}}
+  <div class="gridjs-error">
+    <strong>Grid.js Error:</strong> Could not parse markdown table. Ensure proper format with header row and separator.
+  </div>
+{{- else -}}
+
+<div class="gridjs-hextra-wrapper {{ $wideClass }} {{ $class }}">
+{{- if $title -}}
+<h3 class="gridjs-table-title">{{ $title }}</h3>
+{{- end -}}
+<div id="{{ $id }}" class="gridjs-hextra-container"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Column configuration parsed from markdown
+  var columnConfigs = {{ $columnConfigs | jsonify | safeJS }};
+  
+  // Helper function to process cell content (markdown links and HTML)
+  function processContent(cell) {
+    if (cell === null || cell === undefined) return '';
+    var content = String(cell);
+    
+    // Convert markdown links [text](url) to HTML links
+    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="hx:text-primary-600 hx:hover:underline">$1</a>');
+    
+    // Convert **bold** to <strong>
+    content = content.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert `code` to <code>
+    content = content.replace(/`([^`]+)`/g, '<code class="hx:bg-gray-100 hx:dark:bg-neutral-800 hx:px-1 hx:rounded hx:text-sm">$1</code>');
+    
+    return content;
+  }
+  
+  // Build Grid.js column definitions
+  var columns = columnConfigs.map(function(col) {
+    var colDef = {
+      name: col.name
+    };
+    
+    if (col.width) colDef.width = col.width;
+    if (col.sort === false) colDef.sort = false;
+    if (col.hidden === true) colDef.hidden = true;
+    
+    // Wrapping control via formatter - all cells get HTML/markdown processing
+    if (col.wrap) {
+      var wrapClasses = {
+        'nowrap': 'gridjs-nowrap',
+        'wrap': 'gridjs-wrap',
+        'break': 'gridjs-wrap-break',
+        'pre': 'gridjs-wrap-pre',
+        'truncate': 'gridjs-truncate',
+        'constrained': 'gridjs-constrained'
+      };
+      var wrapClass = wrapClasses[col.wrap] || 'gridjs-wrap';
+      
+      colDef.formatter = function(cell) {
+        return gridjs.html('<span class="' + wrapClass + '">' + processContent(cell) + '</span>');
+      };
+    } else {
+      // Default formatter with HTML/markdown support
+      colDef.formatter = function(cell) {
+        return gridjs.html(processContent(cell));
+      };
+    }
+    
+    return colDef;
+  });
+  
+  // Table data parsed from markdown rows - extract cells from wrapper dicts
+  var rowData = {{ $rows | jsonify | safeJS }};
+  var tableData = rowData.map(function(row) {
+    return row.cells;
+  });
+  
+  // Grid.js configuration
+  var config = {
+    columns: columns,
+    data: tableData,
+    search: {{ if eq $search "false" }}false{{ else }}true{{ end }},
+    sort: {{ if eq $sort "false" }}false{{ else }}true{{ end }},
+    width: '{{ $width }}',
+    autoWidth: true,
+    language: {
+      search: {
+        placeholder: '🔍 Search table...'
+      },
+      sort: {
+        sortAsc: 'Sort ascending',
+        sortDesc: 'Sort descending'
+      },
+      pagination: {
+        previous: '← Previous',
+        next: 'Next →',
+        navigate: function(page, pages) {
+          return 'Page ' + page + ' of ' + pages;
+        },
+        page: function(page) {
+          return 'Page ' + page;
+        },
+        showing: 'Showing',
+        of: 'of',
+        to: 'to',
+        results: 'results'
+      },
+      loading: 'Loading...',
+      noRecordsFound: 'No matching records found',
+      error: 'An error occurred while loading data'
+    }
+  };
+  
+  // Conditional options
+  {{ if $pagination }}
+  config.pagination = {
+    limit: parseInt('{{ $pagination }}', 10),
+    summary: true
+  };
+  {{ end }}
+  
+  {{ if $height }}
+  config.height = '{{ $height }}';
+  {{ end }}
+  
+  {{ if eq $resizable "true" }}
+  config.resizable = true;
+  {{ end }}
+  
+  {{ if eq $fixedHeader "true" }}
+  config.fixedHeader = true;
+  {{ end }}
+  
+  // Render the grid
+  var container = document.getElementById('{{ $id }}');
+  if (container) {
+    new gridjs.Grid(config).render(container);
+  } else {
+    console.error('Grid.js: Container element not found:', '{{ $id }}');
+  }
+})();
+</script>
+
+{{- end -}}

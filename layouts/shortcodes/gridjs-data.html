@@ -1,0 +1,198 @@
+{{- $id := printf "gridjs-data-%d" (now.UnixNano) -}}
+{{- $dataFile := .Get "data" -}}
+{{- $columnsOverride := .Get "columns" | default "" -}}
+{{- $search := .Get "search" | default "true" -}}
+{{- $sort := .Get "sort" | default "true" -}}
+{{- $pagination := .Get "pagination" | default "20" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $resizable := .Get "resizable" | default "false" -}}
+{{- $fixedHeader := .Get "fixedHeader" | default "false" -}}
+{{- $wide := .Get "wide" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{/* Build wide class */}}
+{{- $wideClass := "" -}}
+{{- if eq $wide "true" -}}
+  {{- $wideClass = "gridjs-hextra-wide" -}}
+{{- else if eq $wide "full" -}}
+  {{- $wideClass = "gridjs-hextra-fullwidth" -}}
+{{- end -}}
+
+{{/* Validate data file parameter */}}
+{{- if not $dataFile -}}
+  <div class="gridjs-error">
+    <strong>Grid.js Error:</strong> Missing required "data" parameter. 
+    Specify the name of a JSON file in <code>data/tables/</code>.
+  </div>
+{{- else -}}
+
+{{/* Load data from Hugo data file */}}
+{{- $data := index site.Data.tables $dataFile -}}
+
+{{- if not $data -}}
+  <div class="gridjs-error">
+    <strong>Grid.js Error:</strong> Data file not found: <code>data/tables/{{ $dataFile }}.json</code>
+  </div>
+{{- else -}}
+
+{{/* Determine columns - use override if provided, otherwise from data */}}
+{{- $columns := $columnsOverride -}}
+{{- if and (not $columnsOverride) (isset $data "columns") -}}
+  {{- $columns = $data.columns -}}
+{{- end -}}
+
+{{/* Determine rows - support both .rows and direct array */}}
+{{- $rows := $data -}}
+{{- if isset $data "rows" -}}
+  {{- $rows = $data.rows -}}
+{{- end -}}
+
+{{/* Validate we have data */}}
+{{- if not $rows -}}
+  <div class="gridjs-error">
+    <strong>Grid.js Error:</strong> No row data found in <code>data/tables/{{ $dataFile }}.json</code>.
+    Expected "rows" array or top-level array.
+  </div>
+{{- else -}}
+
+<div id="{{ $id }}" class="gridjs-hextra-container {{ $wideClass }} {{ $class }}"></div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Column configuration from data file or override
+  var columnsRaw = {{ $columns | jsonify | safeJS }};
+  
+  // Helper function to process cell content (markdown links and HTML)
+  function processContent(cell) {
+    if (cell === null || cell === undefined) return '';
+    var content = String(cell);
+    
+    // Convert markdown links [text](url) to HTML links
+    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="hx:text-primary-600 hx:hover:underline">$1</a>');
+    
+    // Convert **bold** to <strong>
+    content = content.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert `code` to <code>
+    content = content.replace(/`([^`]+)`/g, '<code class="hx:bg-gray-100 hx:dark:bg-neutral-800 hx:px-1 hx:rounded hx:text-sm">$1</code>');
+    
+    return content;
+  }
+  
+  // Parse columns
+  var columns = [];
+  if (Array.isArray(columnsRaw)) {
+    columns = columnsRaw.map(function(col) {
+      if (typeof col === 'string') {
+        return { 
+          name: col,
+          formatter: function(cell) {
+            return gridjs.html(processContent(cell));
+          }
+        };
+      }
+      
+      var colDef = {
+        name: col.name || String(col)
+      };
+      
+      if (col.id) colDef.id = col.id;
+      if (col.width) colDef.width = col.width;
+      if (col.sort === false) colDef.sort = false;
+      if (col.hidden === true) colDef.hidden = true;
+      
+      // Wrapping control - all cells get HTML/markdown processing
+      if (col.wrap) {
+        var wrapClasses = {
+          'nowrap': 'gridjs-nowrap',
+          'wrap': 'gridjs-wrap',
+          'break': 'gridjs-wrap-break',
+          'pre': 'gridjs-wrap-pre',
+          'truncate': 'gridjs-truncate',
+          'constrained': 'gridjs-constrained'
+        };
+        var wrapClass = wrapClasses[col.wrap] || 'gridjs-wrap';
+        
+        colDef.formatter = function(cell) {
+          return gridjs.html('<span class="' + wrapClass + '">' + processContent(cell) + '</span>');
+        };
+      } else {
+        // Default formatter with HTML/markdown support
+        colDef.formatter = function(cell) {
+          return gridjs.html(processContent(cell));
+        };
+      }
+      
+      return colDef;
+    });
+  }
+  
+  // Table data from Hugo data file
+  var tableData = {{ $rows | jsonify | safeJS }};
+  
+  // Grid.js configuration
+  var config = {
+    columns: columns.length > 0 ? columns : undefined,
+    data: tableData,
+    search: {{ if eq $search "false" }}false{{ else }}true{{ end }},
+    sort: {{ if eq $sort "false" }}false{{ else }}true{{ end }},
+    width: '{{ $width }}',
+    autoWidth: true,
+    pagination: {
+      limit: parseInt('{{ $pagination }}', 10),
+      summary: true
+    },
+    language: {
+      search: {
+        placeholder: '🔍 Search table...'
+      },
+      sort: {
+        sortAsc: 'Sort ascending',
+        sortDesc: 'Sort descending'
+      },
+      pagination: {
+        previous: '← Previous',
+        next: 'Next →',
+        navigate: function(page, pages) {
+          return 'Page ' + page + ' of ' + pages;
+        },
+        page: function(page) {
+          return 'Page ' + page;
+        },
+        showing: 'Showing',
+        of: 'of',
+        to: 'to',
+        results: 'results'
+      },
+      loading: 'Loading...',
+      noRecordsFound: 'No matching records found',
+      error: 'An error occurred while loading data'
+    }
+  };
+  
+  {{ if $height }}
+  config.height = '{{ $height }}';
+  {{ end }}
+  
+  {{ if eq $resizable "true" }}
+  config.resizable = true;
+  {{ end }}
+  
+  {{ if eq $fixedHeader "true" }}
+  config.fixedHeader = true;
+  {{ end }}
+  
+  // Render
+  var container = document.getElementById('{{ $id }}');
+  if (container) {
+    new gridjs.Grid(config).render(container);
+  }
+})();
+</script>
+
+{{- end -}}{{/* end if $rows */}}
+{{- end -}}{{/* end if $data */}}
+{{- end -}}{{/* end if $dataFile */}}

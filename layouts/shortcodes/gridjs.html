@@ -1,0 +1,174 @@
+{{- $id := printf "gridjs-table-%d" (now.UnixNano) -}}
+{{- $columns := .Get "columns" | default "[]" -}}
+{{- $search := .Get "search" | default "true" -}}
+{{- $sort := .Get "sort" | default "true" -}}
+{{- $pagination := .Get "pagination" | default "" -}}
+{{- $height := .Get "height" | default "" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $resizable := .Get "resizable" | default "false" -}}
+{{- $fixedHeader := .Get "fixedHeader" | default "false" -}}
+{{- $wide := .Get "wide" | default "" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{/* Build wide class */}}
+{{- $wideClass := "" -}}
+{{- if eq $wide "true" -}}
+  {{- $wideClass = "gridjs-hextra-wide" -}}
+{{- else if eq $wide "full" -}}
+  {{- $wideClass = "gridjs-hextra-fullwidth" -}}
+{{- end -}}
+
+{{/* Get inner content (the data) */}}
+{{- $rawData := .Inner | chomp -}}
+
+<div id="{{ $id }}" class="gridjs-hextra-container {{ $wideClass }} {{ $class }}"></div>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Column configuration
+  var columnsRaw = {{ $columns | safeJS }};
+  
+  // Helper function to process cell content (markdown links and HTML)
+  function processContent(cell) {
+    if (cell === null || cell === undefined) return '';
+    var content = String(cell);
+    
+    // Convert markdown links [text](url) to HTML links
+    content = content.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="hx:text-primary-600 hx:hover:underline">$1</a>');
+    
+    // Convert **bold** to <strong>
+    content = content.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
+    // Convert `code` to <code>
+    content = content.replace(/`([^`]+)`/g, '<code class="hx:bg-gray-100 hx:dark:bg-neutral-800 hx:px-1 hx:rounded hx:text-sm">$1</code>');
+    
+    return content;
+  }
+  
+  // Parse columns - handle both string arrays and object arrays
+  var columns = [];
+  if (Array.isArray(columnsRaw)) {
+    columns = columnsRaw.map(function(col) {
+      // Simple string column name
+      if (typeof col === 'string') {
+        return { 
+          name: col,
+          formatter: function(cell) {
+            return gridjs.html(processContent(cell));
+          }
+        };
+      }
+      
+      // Object configuration
+      var colDef = {
+        name: col.name || String(col)
+      };
+      
+      // Optional properties
+      if (col.id) colDef.id = col.id;
+      if (col.width) colDef.width = col.width;
+      if (col.sort === false) colDef.sort = false;
+      if (col.hidden === true) colDef.hidden = true;
+      
+      // Wrapping control via formatter - all cells get HTML/markdown processing
+      if (col.wrap) {
+        var wrapClasses = {
+          'nowrap': 'gridjs-nowrap',
+          'wrap': 'gridjs-wrap',
+          'break': 'gridjs-wrap-break',
+          'pre': 'gridjs-wrap-pre',
+          'truncate': 'gridjs-truncate',
+          'constrained': 'gridjs-constrained'
+        };
+        var wrapClass = wrapClasses[col.wrap] || 'gridjs-wrap';
+        
+        colDef.formatter = function(cell) {
+          return gridjs.html('<span class="' + wrapClass + '">' + processContent(cell) + '</span>');
+        };
+      } else {
+        // Default formatter with HTML/markdown support
+        colDef.formatter = function(cell) {
+          return gridjs.html(processContent(cell));
+        };
+      }
+      
+      return colDef;
+    });
+  }
+  
+  // Parse table data from inner content
+  var tableData;
+  try {
+    tableData = {{ $rawData | safeJS }};
+  } catch (e) {
+    console.error('Grid.js: Failed to parse table data', e);
+    tableData = [];
+  }
+  
+  // Build Grid.js configuration
+  var config = {
+    columns: columns,
+    data: tableData,
+    search: {{ if eq $search "false" }}false{{ else }}true{{ end }},
+    sort: {{ if eq $sort "false" }}false{{ else }}true{{ end }},
+    width: '{{ $width }}',
+    autoWidth: true,
+    language: {
+      search: {
+        placeholder: '🔍 Search table...'
+      },
+      sort: {
+        sortAsc: 'Sort ascending',
+        sortDesc: 'Sort descending'
+      },
+      pagination: {
+        previous: '← Previous',
+        next: 'Next →',
+        navigate: function(page, pages) {
+          return 'Page ' + page + ' of ' + pages;
+        },
+        page: function(page) {
+          return 'Page ' + page;
+        },
+        showing: 'Showing',
+        of: 'of',
+        to: 'to',
+        results: 'results'
+      },
+      loading: 'Loading...',
+      noRecordsFound: 'No matching records found',
+      error: 'An error occurred while loading data'
+    }
+  };
+  
+  // Conditional options
+  {{ if $pagination }}
+  config.pagination = {
+    limit: parseInt('{{ $pagination }}', 10),
+    summary: true
+  };
+  {{ end }}
+  
+  {{ if $height }}
+  config.height = '{{ $height }}';
+  {{ end }}
+  
+  {{ if eq $resizable "true" }}
+  config.resizable = true;
+  {{ end }}
+  
+  {{ if eq $fixedHeader "true" }}
+  config.fixedHeader = true;
+  {{ end }}
+  
+  // Render the grid
+  var container = document.getElementById('{{ $id }}');
+  if (container) {
+    new gridjs.Grid(config).render(container);
+  } else {
+    console.error('Grid.js: Container element not found:', '{{ $id }}');
+  }
+})();
+</script>

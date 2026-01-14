@@ -1,8 +1,10 @@
 ---
 title: "Blog"
-description: "Read my latest thoughts and updates on various topics."
+description: ""
 cascade:
   type: blog
 ---
 
-Blog coming soon.
+# Blog
+
+This is some text

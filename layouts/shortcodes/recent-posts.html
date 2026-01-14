@@ -1,0 +1,99 @@
+{{/*
+  Recent Blog Posts Shortcode
+  Displays recent blog posts in a card grid using Hextra styling.
+
+  Parameters:
+    - limit: Number of posts to show (3-6, default: 3)
+    - cols: Number of grid columns (default: 3)
+    - tag: Optional tag filter
+
+  Example usage:
+    recent-posts
+    recent-posts limit=6
+    recent-posts cols=2
+    recent-posts limit=4 cols=2
+    recent-posts tag="tutorial"
+*/}}
+
+{{- $limit := .Get "limit" | default 3 -}}
+{{- $cols := .Get "cols" | default 3 -}}
+{{- $tagFilter := .Get "tag" -}}
+
+{{/* Ensure limit is between 3 and 6 */}}
+{{- $limit = cond (lt $limit 3) 3 $limit -}}
+{{- $limit = cond (gt $limit 6) 6 $limit -}}
+
+{{/* Get blog posts - exclude drafts */}}
+{{- $blogPages := where site.RegularPages "Type" "blog" -}}
+{{- $blogPages = where $blogPages "Params.draft" "!=" true -}}
+
+{{/* Filter by tag if specified */}}
+{{- with $tagFilter -}}
+  {{- $blogPages = where $blogPages "Params.tags" "intersect" (slice $tagFilter) -}}
+{{- end -}}
+
+{{/* Only proceed if we have pages */}}
+{{- if $blogPages -}}
+  {{/* Sort by date descending and limit */}}
+  {{- $blogPages = sort $blogPages "Date" "desc" -}}
+  {{- $blogPages = first $limit $blogPages -}}
+
+  {{- $imageStyle := "" -}}
+
+  {{/* Render cards grid */}}
+  <div class="hextra-cards hx:mt-4 hx:gap-4 hx:grid not-prose" style="--hextra-cards-grid-cols: {{ $cols }};">
+    {{- range $blogPages }}
+      {{- $post := . -}}
+      {{- $featuredImage := "" -}}
+
+      {{/* Try to get featured image from page resources */}}
+      {{- with $post.Params.featuredImage -}}
+        {{- $imgResource := $post.Resources.GetMatch . -}}
+        {{- if $imgResource -}}
+          {{- $featuredImage = $imgResource.RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{/* Also check for image in page resources if no frontmatter featuredImage */}}
+      {{- if not $featuredImage -}}
+        {{- $img := $post.Resources.GetMatch "{featured*,cover*,thumbnail*}" -}}
+        {{- with $img -}}
+          {{- $featuredImage = .RelPermalink -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- $linkClass := "hx:hover:border-gray-300 hx:bg-transparent hx:shadow-xs hx:dark:border-neutral-800 hx:hover:bg-slate-50 hx:hover:shadow-md hx:dark:hover:border-neutral-700 hx:dark:hover:bg-neutral-900" -}}
+      {{- with $featuredImage -}}
+        {{- $linkClass = "hx:hover:border-gray-300 hx:bg-gray-100 hx:shadow-sm hx:dark:border-neutral-700 hx:dark:bg-neutral-800 hx:dark:text-gray-50 hx:hover:shadow-lg hx:dark:hover:border-neutral-500 hx:dark:hover:bg-neutral-700" -}}
+      {{- end -}}
+
+      <a
+        class="hextra-card hx:group hx:flex hx:flex-col hx:justify-start hx:overflow-hidden hx:rounded-lg hx:border hx:border-gray-200 hx:text-current hx:no-underline hx:dark:shadow-none hx:hover:shadow-gray-100 hx:dark:hover:shadow-none hx:shadow-gray-100 hx:active:shadow-sm hx:active:shadow-gray-200 hx:transition-all hx:duration-200 {{ $linkClass }}"
+        href="{{ $post.RelPermalink }}"
+      >
+        {{- with $featuredImage -}}
+          <img
+            alt="{{ $post.Title }}"
+            class="hextra-card-image"
+            loading="lazy"
+            decoding="async"
+            src="{{ . | safeURL }}"
+            style="{{ $imageStyle | safeCSS }}"
+          />
+        {{- end -}}
+
+        <span class="hextra-card-icon hx:flex hx:font-semibold hx:items-start hx:gap-2 hx:pt-4 hx:px-4 hx:text-gray-700 hx:hover:text-gray-900 hx:dark:text-neutral-200 hx:dark:hover:text-neutral-50">
+          {{- $post.Title -}}
+        </span>
+
+        <div class="hextra-card-subtitle hx:line-clamp-3 hx:text-sm hx:font-normal hx:text-gray-500 hx:dark:text-gray-400 hx:px-4 hx:mb-2 hx:mt-2">
+          {{- partial "utils/page-description" $post | markdownify -}}
+        </div>
+
+        <div class="hx:mt-auto hx:px-4 hx:pb-4 hx:text-xs hx:text-gray-400 hx:dark:text-gray-500">
+          {{ partial "utils/format-date" $post.Date }}
+        </div>
+      </a>
+    {{- end -}}
+  </div>
+{{- end -}}

@@ -1,0 +1,35 @@
+/* Blog Card Enhancements */
+
+/* Ensure card images display fully without cropping */
+.hextra-card .hextra-card-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Add subtle hover effect on card images */
+.hextra-card:hover .hextra-card-image {
+  opacity: 0.95;
+}
+
+/* Ensure card content fills available space */
+.hextra-card {
+  height: 100%;
+}
+
+/* Add bottom padding to card date */
+.hextra-card > div:last-child {
+  padding-bottom: 1rem;
+}
+
+/* Responsive adjustments for blog cards on smaller screens */
+@media (max-width: 640px) {
+  .hextra-cards {
+    --hextra-cards-grid-cols: 1 !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hextra-cards {
+    --hextra-cards-grid-cols: 2 !important;
+  }
+}

@@ -3,6 +3,13 @@
 /assets/jsconfig.json
 hugo_stats.json
 /.hugo_build.lock
-
 /.frontmatter/
 /.vscode/
+/_vendor/
+/.claude/
+/.vscode/
+/data/
+frontmatter.json
+/.github/instructions/
+/.github/pages-files/
+
