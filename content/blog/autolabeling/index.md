@@ -11,6 +11,10 @@ featuredImage: "purview_auto_labeling_scenarios.png"
 
 ![](purview_auto_labeling_scenarios.png)
 
+This is an article I've wanted to put together for a while: a comprehensive reference of all the different auto-labeling mechanisms available in Microsoft Purview Sensitivity Labels, organized by platform and location. This includes client-side and service-side auto-labeling, default labels from policies, and specific behaviors in SharePoint, Exchange, Teams, Power BI/Fabric, and hybrid/on-premises scenarios.
+
+Let me know if you see any errors or omissions! This stuff is spread all over the documentation, so it's possible I missed something.
+
 ### Primary Auto-Labeling Mechanisms (Organized by Platform/Location)
 
 {{< gridjs-md wide="true" search="false" title="Microsoft 365 Core" >}}
@@ -129,7 +133,7 @@ featuredImage: "purview_auto_labeling_scenarios.png"
 | ------------------------------ | ------------------------------ | --------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | **Label Applied**              | Sensitivity label applied      | Source (manual/auto), label name, user, location, timestamp           | Activity Explorer, Audit Log                      | [Labeling activities - Sensitivity label applied](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer-available-events#sensitivity-label-applied) |
 | **Label Changed**              | Sensitivity label changed      | Old label, new label, upgrade/downgrade indicator, justification text | Activity Explorer, Audit Log                      | [Labeling activities - Sensitivity label changed](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer-available-events#sensitivity-label-changed) |
-| **Label Removed**              | Sensitivity label removed      | Previous label, justification (if required), user                     | Activity Explorer, Audit Log                      | [Get started with activity explorer](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer) |
+| **Label Removed**              | Sensitivity label removed      | Previous label, justification (if required), user                     | Activity Explorer, Audit Log                      | [Labeling activities - Sensitivity label removed](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer-available-events#sensitivity-label-removed) |
 | **Library Default Applied**    | Applied sensitivity label file | ActionSourceDetails = 6 (library default), label GUID                 | Audit Log (SharePoint list activities)            | [Monitoring application of library default sensitivity labels](https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label#monitoring-application-of-library-default-sensitivity-labels) |
 | **Auto-Labeling Policy Match** | Various events based on policy | Policy name, rule matched, simulation vs production mode              | Auto-labeling policy interface, Activity Explorer | [Learn about simulation mode](https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically#learn-about-simulation-mode) |
 | **Downstream Inheritance**     | Sensitivity label applied      | Inheritance source, affected items                                    | Activity Explorer                                 | [Get started with activity explorer](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer) |
