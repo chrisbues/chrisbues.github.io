@@ -6,4 +6,4 @@ Welcome to the Purview documentation section. Here you'll find resources, guides
 
 It's a bit bare right now, but stay tuned for more content soon!
 
-{{< hextra/feature-card title="SITs for Table-based data" subtitle="Learn how to effectively use Sensitive Information Types for table-based data in Purview" link="/docs/Purview/sits_for_table_based_data">}}
+{{< hextra/feature-card title="SITs for Table-based data" subtitle="Learn how to effectively use Sensitive Information Types for table-based data in Purview" link="/docs/purview/sits_for_table_based_data">}}
