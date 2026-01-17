@@ -46,7 +46,31 @@ On the Purview side, there are two main components to Network DLP: Collection Po
 
 If you haven't used Collection Polices before, they can be a bit confusing. Collection policies in Microsoft Purview let you filter which events and telemetry are ingested from specific data sources, locations, activities, and content conditions (using classifiers and sensitive info types) so only the signals you need are brought into Purview for classification, auditing, and downstream solutions. They’re scoped to data sources (and combined per source at evaluation), support integrations like SASE/network DLP, and are configured in the Purview portal (Solutions → Data Loss Prevention → Classifiers → Collection policies) to reduce noise and meet regional or regulatory requirements.
 
+In the context of Network DLP (and Edge in-browser protections), collection policies enable the collection of sensitive data sent to the following sources:
+
+- Unmanaged cloud apps
+- Adaptive App Scopes, albeit only the `All unmanaged AI apps` scopes
+
+Additionally, you can capture the full text of prompts and responses sent to consumer AI services like Gemini, ChatGTP and Deepseek.
+
+#### Creating a Network DLP Collection Policy
+
+In DLP, navigate to Classifiers → Collection policies and create a new policy:
+
+| Setting | Value |
+|---------|-------|
+| Name    | Network DLP Collection Policy |
+| Description | Collection policy to capture sensitive data in transit via Global Secure Access |
+| Data to Detect | `All Classifiers` |
+| Activities to Detect | <ul><li>`Text sent to or shared with cloud or AI app`</li><li>`File uploaded to or shared with cloud or AI app`</li><li>`Text received from cloud or AI app`</li><li>`File downloaded from cloud or AI app`</li></ul><br>![alt text](purview_network_dlp_collection_policy_activities.png) |
+| Data Sources | Adaptive App Scope: `All unmanaged AI Apps`<br> *Currently the only supported scope supported for Browser & Network*<br>![](purview_network_dlp_data_sources.png)Choose Edit Scope to include or Exclude users/groups|
+| Where to Apply | <ul><li>Content Capture: Choose `Capture content`</li><li>Cloud apps detection: Choose `Network`</li></ul> |
+
+
+
+
+
+
 ![alt text](image-2.png)
 
 https://learn.microsoft.com/en-us/purview/collection-policies-policy-reference#data-sources
-

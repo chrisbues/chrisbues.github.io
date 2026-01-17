@@ -12,4 +12,6 @@ hugo_stats.json
 frontmatter.json
 /.github/instructions/
 /.github/pages-files/
+.DS_Store
+Thumbs.db
 
