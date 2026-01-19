@@ -1,12 +1,14 @@
 ---
-title: "Purview Sensitivity Label Auto-Labeling Scenarios"
+title: Purview Sensitivity Label Auto-Labeling Scenarios
 date: 2026-01-14
-description: "Learn about the various auto-labeling mechanisms available in Microsoft Purview."
-tags: ["tutorial", "purview", "auto-labeling"]
+description: Learn about the various auto-labeling mechanisms available in Microsoft Purview.
+tags:
+    - Purview
+    - MIP
 draft: false
 toc: false
 gridjs: true
-featuredImage: "purview_auto_labeling_scenarios.png"
+featuredImage: purview_auto_labeling_scenarios.png
 ---
 
 ![](purview_auto_labeling_scenarios.png)
