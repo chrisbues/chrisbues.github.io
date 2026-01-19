@@ -14,4 +14,5 @@ frontmatter.json
 /.github/pages-files/
 .DS_Store
 Thumbs.db
-
+.obsidian/
+.pdf
