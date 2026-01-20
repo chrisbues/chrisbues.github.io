@@ -5,7 +5,7 @@ description: Learn how to set up a Purview DLP Monitor Policy to effectively tra
 tags:
     - Purview
     - DLP
-draft: false
+draft: true
 toc: false
 featuredImage: "purview_dlp_monitor_policy.png"
 ---
