@@ -7,7 +7,7 @@ tags:
   - purview
   - data-loss-prevention
 draft: false
-toc: false
+toc: true
 featuredImage: "purview_network_dlp.png"
 ---
 

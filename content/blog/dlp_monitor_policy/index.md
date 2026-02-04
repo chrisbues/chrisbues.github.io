@@ -6,7 +6,7 @@ tags:
     - Purview
     - DLP
 draft: false
-toc: false
+toc: true
 featuredImage: "purview_dlp_monitor_policy.png"
 ---
 ## Why you need a DLP Monitor Policy
