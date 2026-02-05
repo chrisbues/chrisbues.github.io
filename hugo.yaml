@@ -45,6 +45,7 @@ markup:
     renderer:
       unsafe: true
 
+enableGitInfo: true
 
 params:
   page:
@@ -63,6 +64,8 @@ params:
       displayTags: true
   toc:
     displayTags: true
+  displayUpdatedDate: true
+  dateFormat: "January 2, 2006"
 
 enableEmoji: true
 enableInlineShortcodes: true

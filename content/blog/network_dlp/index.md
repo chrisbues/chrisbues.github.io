@@ -11,16 +11,21 @@ toc: true
 featuredImage: "purview_network_dlp.png"
 ---
 
-In this blog post, we will explore how to set up and utilize Purview Network Data Loss Prevention (DLP) in conjunction with Global Secure Access (GSA) to safeguard sensitive data as it moves across your network. We will cover the configuration steps, best practices, and real-world scenarios where this integration can enhance your organization's data security posture.
+In this blog post and accompanying video, we will explore how to set up and utilize Purview Network Data Loss Prevention (DLP) in conjunction with Global Secure Access (GSA) to safeguard sensitive data as it moves across your network. We will cover the configuration steps, best practices, and real-world scenarios where this integration can enhance your organization's data security posture.
+
+{{< youtube kkSe_yRz9AA >}}
 
 ## Prerequisites
 
-- Enterprise Mobility & Security E5 License
+- Enterprise Mobility & Security E5 License for the Purview capability
+- Microsoft Entra Internet Access license for GSA
 
 GSA is a paid offering. While the M365 traffic profile in GSA is included with E5, to leverage Network DLP capabilities, you will need one of the following licenses that include Entra Internet Access:
 
 - Microsoft Entra Internet Access Standalone License
 - Microsoft Entra Suite License
+
+As always, M365 Maps is your friend when it comes to license verification: [Entra Suite Components](https://m365maps.com/files/Entra-Suite.htm).
 
 ## Global Secure Access (GSA) Setup
 
