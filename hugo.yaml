@@ -66,6 +66,9 @@ params:
     displayTags: true
   displayUpdatedDate: true
   dateFormat: "January 2, 2006"
+  editURL:
+    enable: true
+    base: "https://github.com/chrisbues/chrisbues.github.io/edit/main"
 
 enableEmoji: true
 enableInlineShortcodes: true
