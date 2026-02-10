@@ -11,7 +11,7 @@ toc: true
 featuredImage: "purview_network_dlp.png"
 ---
 
-In this blog post and accompanying video, we will explore how to set up and utilize Purview Network Data Loss Prevention (DLP) in conjunction with Global Secure Access (GSA) to safeguard sensitive data as it moves across your network. We will cover the configuration steps, best practices, and real-world scenarios where this integration can enhance your organization's data security posture.
+In this blog post and accompanying video, I will explore how to set up and utilize Purview Network Data Loss Prevention (DLP) in conjunction with Global Secure Access (GSA) to safeguard sensitive data as it moves across your network. I'll cover the configuration steps, best practices, and real-world scenarios where this integration can enhance your organization's data security posture.
 
 {{< youtube kkSe_yRz9AA >}}
 
@@ -29,7 +29,7 @@ As always, M365 Maps is your friend when it comes to license verification: [Entr
 
 ## Global Secure Access (GSA) Setup
 
-The GSA setup is lengthy. We won't cover all of the details here, but you can refer to the official documentation for a comprehensive guide: [Get started with Global Secure Access](https://learn.microsoft.com/en-us/entra/internet-access/get-started-overview).
+The GSA setup is lengthy. I won't cover all of the details here, but you can refer to the official documentation for a comprehensive guide: [Get started with Global Secure Access](https://learn.microsoft.com/en-us/entra/internet-access/get-started-overview).
 
 At a bare minimum, you will need:
 
