@@ -105,6 +105,9 @@ In DLP, navigate to Policies and create a new policy:
 
 After completing those steps, you'll be presented with the familiar DLP policy rule builder. From here, you can configure the policy rules as you would for any other DLP policy. 
 
+> [!IMPORTANT]
+> GSA network content filtering currently supports file uploads and downloads. It doesn't support filtering for text (yet). This obviously leaves a gap in the protection for sensitive data sent via API calls, text input boxes, etc. [More Info](https://learn.microsoft.com/en-us/entra/global-secure-access/how-to-network-content-filtering#scenarios-included-in-this-preview)
+
 ##### Conditions
 
 For conditions, Network DLP supports the typical content inspection and file metadata properties.

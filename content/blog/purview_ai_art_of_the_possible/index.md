@@ -8,5 +8,10 @@ tags:
 draft: true
 toc: true
 gridjs: true
-featuredImage: 
+featuredImage:
 ---
+
+| col1 | col2 | col3 |
+| ------ | ------ | ------ |
+|      |      |      |
+|      |      |      |
