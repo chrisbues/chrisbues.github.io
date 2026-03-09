@@ -11,8 +11,8 @@ module:
 
 outputs:
   home: [html, llms]
-  page: [html]
-  section: [html, rss]
+  page: [html, markdown]
+  section: [html, rss, markdown]
 
 menu:
   main:
@@ -59,6 +59,16 @@ params:
       link: /
     width: wide
   externalLinkDecoration: true
+  contextMenu:
+    enable: true
+    links:
+      - name: Open in ChatGPT
+        icon: chatgpt
+        url: "https://chatgpt.com/?hints=search&q=I%27m+looking+at+this+documentation%3A+{url}%0AHelp+me+understand+how+to+use+it."
+      - name: Open in Claude
+        icon: claude
+        url: "https://claude.ai/new?q=I%27m+looking+at+this+documentation%3A+{url}%0AHelp+me+understand+how+to+use+it."
+
   blog:
     list:
       displayTags: true
@@ -67,7 +77,7 @@ params:
   displayUpdatedDate: true
   dateFormat: "January 2, 2006"
   editURL:
-    enable: true
+    enable: false
     base: "https://github.com/chrisbues/chrisbues.github.io/edit/main"
 
 enableEmoji: true
