@@ -8,7 +8,8 @@ hugo_stats.json
 /_vendor/
 /.claude/
 /.vscode/
-/data/
+/data/*
+!/data/trees/
 frontmatter.json
 /.github/instructions/
 /.github/pages-files/

@@ -1,0 +1,187 @@
+{
+  "start": "q-goal",
+  "nodes": {
+    "q-goal": {
+      "type": "question",
+      "text": "What is your primary security or compliance goal?",
+      "options": [
+        { "text": "Protect sensitive data from leaving the organization", "next": "q-dlp-scope" },
+        { "text": "Classify and label content automatically", "next": "q-label-content" },
+        { "text": "Meet regulatory compliance requirements", "next": "q-compliance-reg" },
+        { "text": "Manage the entire data lifecycle (retention & deletion)", "next": "q-lifecycle" }
+      ]
+    },
+
+    "q-dlp-scope": {
+      "type": "question",
+      "text": "Where does the sensitive data primarily reside or move?",
+      "options": [
+        { "text": "Microsoft 365 apps (Email, Teams, SharePoint, OneDrive)", "next": "result-dlp-m365" },
+        { "text": "Endpoints (Windows/macOS devices)", "next": "result-dlp-endpoint" },
+        { "text": "Cloud apps outside Microsoft 365", "next": "result-dlp-mcas" },
+        { "text": "On-premises file shares or SharePoint Server", "next": "result-dlp-onprem" }
+      ]
+    },
+
+    "q-label-content": {
+      "type": "question",
+      "text": "What type of content do you need to classify?",
+      "options": [
+        { "text": "Emails, documents, and Teams messages", "next": "q-label-method" },
+        { "text": "Structured data in databases or storage accounts", "next": "result-purview-data-catalog" },
+        { "text": "Code repositories or developer assets", "next": "result-github-advanced-security" }
+      ]
+    },
+
+    "q-label-method": {
+      "type": "question",
+      "text": "How should labeling be applied?",
+      "options": [
+        { "text": "Automatically based on content inspection", "next": "result-auto-labeling" },
+        { "text": "Manually by users with prompts and training", "next": "result-sensitivity-labels" },
+        { "text": "Both — auto-label at rest, prompt users for new content", "next": "result-auto-plus-manual" }
+      ]
+    },
+
+    "q-compliance-reg": {
+      "type": "question",
+      "text": "Which regulatory framework are you targeting?",
+      "options": [
+        { "text": "GDPR / Privacy regulations", "next": "result-compliance-gdpr" },
+        { "text": "Industry-specific (HIPAA, PCI-DSS, FINRA, etc.)", "next": "result-compliance-industry" },
+        { "text": "Internal risk management and audit readiness", "next": "result-compliance-manager" }
+      ]
+    },
+
+    "q-lifecycle": {
+      "type": "question",
+      "text": "What is the main lifecycle concern?",
+      "options": [
+        { "text": "Retaining records for legal or compliance holds", "next": "result-retention-policies" },
+        { "text": "Disposing of data that is no longer needed", "next": "result-records-management" },
+        { "text": "Investigating and responding to data incidents", "next": "result-ediscovery" }
+      ]
+    },
+
+    "result-dlp-m365": {
+      "type": "result",
+      "text": "Microsoft Purview Data Loss Prevention — M365 Workloads",
+      "description": "Configure DLP policies targeting Exchange Online, SharePoint, OneDrive, and Teams. Use built-in sensitive information types (SITs) or custom classifiers to detect content and apply protective actions such as block, warn, or notify.",
+      "links": [
+        { "text": "DLP policy overview", "url": "https://learn.microsoft.com/en-us/purview/dlp-policy-reference" },
+        { "text": "View my DLP posts", "url": "/tags/dlp/" }
+      ]
+    },
+
+    "result-dlp-endpoint": {
+      "type": "result",
+      "text": "Microsoft Purview Endpoint DLP",
+      "description": "Extend DLP protection to Windows 10/11 and macOS devices. Monitor and restrict sensitive data activities such as copy to USB, print, upload to cloud apps, or share via Bluetooth — even when offline.",
+      "links": [
+        { "text": "Endpoint DLP overview", "url": "https://learn.microsoft.com/en-us/purview/endpoint-dlp-learn-about" }
+      ]
+    },
+
+    "result-dlp-mcas": {
+      "type": "result",
+      "text": "Microsoft Defender for Cloud Apps + Purview DLP",
+      "description": "Integrate Purview DLP with Microsoft Defender for Cloud Apps (MDCA) to enforce policies across third-party SaaS applications such as Salesforce, Box, Dropbox, and Google Workspace.",
+      "links": [
+        { "text": "MDCA DLP integration", "url": "https://learn.microsoft.com/en-us/purview/dlp-use-policies-non-microsoft-cloud-apps" }
+      ]
+    },
+
+    "result-dlp-onprem": {
+      "type": "result",
+      "text": "Microsoft Purview Information Protection — On-Premises Scanner",
+      "description": "Deploy the Purview Information Protection (AIP) on-premises scanner to discover, classify, and protect files on Windows Server file shares and on-premises SharePoint Server sites.",
+      "links": [
+        { "text": "On-premises scanner overview", "url": "https://learn.microsoft.com/en-us/purview/deploy-scanner" }
+      ]
+    },
+
+    "result-auto-labeling": {
+      "type": "result",
+      "text": "Purview Auto-Labeling Policies",
+      "description": "Create auto-labeling policies in the Purview compliance portal to scan content at rest in SharePoint and OneDrive, and in transit through Exchange, applying sensitivity labels automatically based on sensitive information types or trainable classifiers.",
+      "links": [
+        { "text": "Auto-labeling overview", "url": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically" },
+        { "text": "My auto-labeling post", "url": "/blog/autolabeling/" }
+      ]
+    },
+
+    "result-sensitivity-labels": {
+      "type": "result",
+      "text": "Sensitivity Labels with User-Driven Classification",
+      "description": "Publish sensitivity label policies to targeted users and groups. Configure default labels, mandatory labeling, and justification prompts to guide users toward correct classification of documents and emails.",
+      "links": [
+        { "text": "Sensitivity labels overview", "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels" }
+      ]
+    },
+
+    "result-auto-plus-manual": {
+      "type": "result",
+      "text": "Combined Auto + Manual Sensitivity Labeling",
+      "description": "Use auto-labeling policies to classify existing content at rest and in transit, while configuring sensitivity label policies with recommended or mandatory labeling prompts for new content authored by users. This hybrid approach maximizes coverage and user adoption.",
+      "links": [
+        { "text": "Auto-labeling policies", "url": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically" },
+        { "text": "My auto-labeling post", "url": "/blog/autolabeling/" }
+      ]
+    },
+
+    "result-compliance-gdpr": {
+      "type": "result",
+      "text": "Purview Privacy & GDPR Compliance",
+      "description": "Use Microsoft Priva to manage privacy risk, handle data subject requests (DSRs), and set up privacy policies. Combine with Purview Compliance Manager to assess your GDPR posture and track improvement actions.",
+      "links": [
+        { "text": "Microsoft Priva overview", "url": "https://learn.microsoft.com/en-us/privacy/priva/priva-overview" },
+        { "text": "Compliance Manager", "url": "https://learn.microsoft.com/en-us/purview/compliance-manager" }
+      ]
+    },
+
+    "result-compliance-industry": {
+      "type": "result",
+      "text": "Purview Compliance Manager — Regulatory Templates",
+      "description": "Compliance Manager includes 360+ pre-built regulatory templates for HIPAA, PCI-DSS, FINRA, ISO 27001, NIST, and more. Use these to assess your compliance posture, assign improvement actions, and generate audit-ready reports.",
+      "links": [
+        { "text": "Compliance Manager templates", "url": "https://learn.microsoft.com/en-us/purview/compliance-manager-templates-list" }
+      ]
+    },
+
+    "result-compliance-manager": {
+      "type": "result",
+      "text": "Microsoft Purview Compliance Manager",
+      "description": "Compliance Manager provides a risk-based compliance score, automated evidence collection from Microsoft 365 controls, and actionable improvement recommendations to help you prepare for audits and demonstrate due diligence.",
+      "links": [
+        { "text": "Compliance Manager overview", "url": "https://learn.microsoft.com/en-us/purview/compliance-manager" }
+      ]
+    },
+
+    "result-retention-policies": {
+      "type": "result",
+      "text": "Purview Retention Policies & Retention Labels",
+      "description": "Apply retention policies across M365 workloads to keep content for a required period. Use retention labels on specific records for item-level control, including event-based retention triggered by business events.",
+      "links": [
+        { "text": "Retention policies overview", "url": "https://learn.microsoft.com/en-us/purview/retention" }
+      ]
+    },
+
+    "result-records-management": {
+      "type": "result",
+      "text": "Purview Records Management",
+      "description": "Declare content as immutable records, manage disposition reviews at end of retention, and maintain a defensible audit trail for regulatory deletion. Supports file plans aligned to your records management framework.",
+      "links": [
+        { "text": "Records management overview", "url": "https://learn.microsoft.com/en-us/purview/records-management" }
+      ]
+    },
+
+    "result-ediscovery": {
+      "type": "result",
+      "text": "Microsoft Purview eDiscovery (Premium)",
+      "description": "Conduct legal holds, data collections, and review sets across M365 content with AI-assisted relevance scoring, near-duplicate detection, and email threading. Suitable for internal investigations and litigation support.",
+      "links": [
+        { "text": "eDiscovery overview", "url": "https://learn.microsoft.com/en-us/purview/ediscovery" }
+      ]
+    }
+  }
+}
