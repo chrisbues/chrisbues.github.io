@@ -19,7 +19,7 @@
   {{- $dataKey := $data -}}
   {{- $treeFile := index .Site.Data.trees $dataKey -}}
   {{- if $treeFile -}}
-  treeData = {{ $treeFile | jsonify }};
+  treeData = {{ $treeFile | jsonify | safeJS }};
   {{- else -}}
   document.getElementById('{{ $id }}-tree').innerHTML =
     '<div class="dt-error">Decision tree data file "trees/{{ $data }}.json" not found.</div>';
