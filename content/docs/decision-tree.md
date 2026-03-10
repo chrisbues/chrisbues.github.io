@@ -10,7 +10,7 @@ The `decision-tree` shortcode renders an interactive, step-by-step decision tree
 
 ## Live Demo
 
-{{< decision-tree data="purview-solution-finder" title="Microsoft Purview Solution Finder" >}}
+{{< decision-tree data="purview-solution-finder" title="Microsoft Purview Solution Finder" />}}
 
 ---
 
@@ -21,7 +21,7 @@ The `decision-tree` shortcode renders an interactive, step-by-step decision tree
 Place a JSON file in `data/trees/<name>.json`, then reference it by name:
 
 ```
-{{</* decision-tree data="my-tree" */>}}
+{{</* decision-tree data="my-tree" /*/>}}
 ```
 
 Enable the shortcode on the page by adding `decision_tree: true` to the front matter.
