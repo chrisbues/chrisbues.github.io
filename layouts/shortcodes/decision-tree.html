@@ -1,0 +1,64 @@
+{{- $id := printf "decision-tree-%d" (now.UnixNano) -}}
+{{- $data := .Get "data" -}}
+{{- $title := .Get "title" | default "" -}}
+
+<div id="{{ $id }}" class="dt-container">
+  {{- if $title -}}
+  <p class="hx:text-lg hx:font-semibold hx:mb-2">{{ $title }}</p>
+  {{- end -}}
+  <div id="{{ $id }}-tree"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  var treeData;
+
+  {{- if $data -}}
+  {{- $dataKey := $data -}}
+  {{- $treeFile := index .Site.Data.trees $dataKey -}}
+  {{- if $treeFile -}}
+  treeData = {{ $treeFile | jsonify | safeJS }};
+  {{- else -}}
+  document.getElementById('{{ $id }}-tree').innerHTML =
+    '<div class="dt-error">Decision tree data file "trees/{{ $data }}.json" not found.</div>';
+  return;
+  {{- end -}}
+  {{- else -}}
+  {{- $raw := .Inner | chomp -}}
+  {{- if $raw -}}
+  try {
+    treeData = {{ $raw | safeJS }};
+  } catch (e) {
+    document.getElementById('{{ $id }}-tree').innerHTML =
+      '<div class="dt-error">Decision tree: invalid JSON — ' + e.message + '</div>';
+    return;
+  }
+  {{- else -}}
+  document.getElementById('{{ $id }}-tree').innerHTML =
+    '<div class="dt-error">Decision tree: no data provided. Use the <code>data</code> parameter or supply inline JSON.</div>';
+  return;
+  {{- end -}}
+  {{- end -}}
+
+  function init() {
+    if (window.DecisionTree && window.DecisionTree.init) {
+      window.DecisionTree.init('{{ $id }}-tree', treeData);
+    } else {
+      // Retry once on next tick in case the script tag hasn't executed yet
+      setTimeout(function() {
+        if (window.DecisionTree && window.DecisionTree.init) {
+          window.DecisionTree.init('{{ $id }}-tree', treeData);
+        }
+      }, 50);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>

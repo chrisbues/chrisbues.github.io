@@ -1,0 +1,529 @@
+{{- if .Params.decision_tree -}}
+<!-- Decision Tree Resources - Only loaded when decision_tree: true in front matter -->
+<style>
+/* ============================================
+   Interactive Decision Tree - Hextra Theme Integration
+   ============================================ */
+
+.dt-container {
+  font-family: inherit;
+  margin: 1.5rem 0;
+  max-width: 100%;
+}
+
+/* Card wrapper */
+.dt-card {
+  background: rgb(255 255 255);
+  border: 1px solid rgb(229 231 235);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.07);
+  transition: box-shadow 0.2s ease;
+}
+
+:is(.dark .dt-card) {
+  background: rgb(23 23 23);
+  border-color: rgb(63 63 70);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3);
+}
+
+/* Breadcrumb / progress path */
+.dt-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+  min-height: 1.5rem;
+  font-size: 0.8125rem;
+  color: rgb(107 114 128);
+}
+
+:is(.dark .dt-breadcrumb) {
+  color: rgb(161 161 170);
+}
+
+.dt-breadcrumb-step {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  animation: dt-fade-in 0.2s ease;
+}
+
+.dt-breadcrumb-step span {
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dt-breadcrumb-sep {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+/* Question section */
+.dt-question {
+  animation: dt-slide-in 0.25s ease;
+}
+
+.dt-question-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(99 102 241);
+  margin-bottom: 0.5rem;
+}
+
+:is(.dark .dt-question-label) {
+  color: rgb(129 140 248);
+}
+
+.dt-question-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(17 24 39);
+  margin: 0 0 1.25rem 0;
+  line-height: 1.5;
+}
+
+:is(.dark .dt-question-text) {
+  color: rgb(245 245 245);
+}
+
+.dt-question-desc {
+  font-size: 0.9rem;
+  color: rgb(75 85 99);
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+:is(.dark .dt-question-desc) {
+  color: rgb(161 161 170);
+}
+
+/* Options */
+.dt-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.dt-option-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgb(249 250 251);
+  border: 1.5px solid rgb(229 231 235);
+  border-radius: 0.5rem;
+  color: rgb(17 24 39);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dt-option-btn:hover {
+  background: rgb(238 242 255);
+  border-color: rgb(99 102 241);
+  color: rgb(79 70 229);
+  transform: translateX(2px);
+}
+
+.dt-option-btn:active {
+  transform: translateX(4px);
+  background: rgb(224 231 255);
+}
+
+:is(.dark .dt-option-btn) {
+  background: rgb(39 39 42);
+  border-color: rgb(63 63 70);
+  color: rgb(228 228 231);
+}
+
+:is(.dark .dt-option-btn:hover) {
+  background: rgb(49 46 129 / 0.4);
+  border-color: rgb(129 140 248);
+  color: rgb(165 180 252);
+}
+
+:is(.dark .dt-option-btn:active) {
+  background: rgb(49 46 129 / 0.6);
+}
+
+.dt-option-arrow {
+  opacity: 0.4;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.dt-option-btn:hover .dt-option-arrow {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Result section */
+.dt-result {
+  animation: dt-slide-in 0.25s ease;
+}
+
+.dt-result-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(16 185 129);
+  margin-bottom: 0.5rem;
+}
+
+:is(.dark .dt-result-label) {
+  color: rgb(52 211 153);
+}
+
+.dt-result-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(17 24 39);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+:is(.dark .dt-result-title) {
+  color: rgb(245 245 245);
+}
+
+.dt-result-desc {
+  font-size: 0.9rem;
+  color: rgb(55 65 81);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+:is(.dark .dt-result-desc) {
+  color: rgb(161 161 170);
+}
+
+.dt-result-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 1.25rem;
+}
+
+.dt-result-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.875rem;
+  background: rgb(99 102 241);
+  border-radius: 0.375rem;
+  color: rgb(255 255 255) !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background 0.15s ease;
+}
+
+.dt-result-link:hover {
+  background: rgb(79 70 229) !important;
+}
+
+:is(.dark .dt-result-link) {
+  background: rgb(79 70 229);
+}
+
+:is(.dark .dt-result-link:hover) {
+  background: rgb(99 102 241) !important;
+}
+
+.dt-result-link-ext {
+  background: transparent !important;
+  border: 1.5px solid rgb(99 102 241);
+  color: rgb(79 70 229) !important;
+}
+
+.dt-result-link-ext:hover {
+  background: rgb(238 242 255) !important;
+}
+
+:is(.dark .dt-result-link-ext) {
+  border-color: rgb(129 140 248);
+  color: rgb(165 180 252) !important;
+}
+
+:is(.dark .dt-result-link-ext:hover) {
+  background: rgb(49 46 129 / 0.3) !important;
+}
+
+/* Nav buttons */
+.dt-nav {
+  display: flex;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid rgb(229 231 235);
+}
+
+:is(.dark .dt-nav) {
+  border-top-color: rgb(63 63 70);
+}
+
+.dt-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1.5px solid rgb(229 231 235);
+  background: rgb(255 255 255);
+  color: rgb(55 65 81);
+  transition: all 0.15s ease;
+}
+
+.dt-nav-btn:hover {
+  background: rgb(249 250 251);
+  border-color: rgb(156 163 175);
+}
+
+:is(.dark .dt-nav-btn) {
+  background: rgb(39 39 42);
+  border-color: rgb(63 63 70);
+  color: rgb(161 161 170);
+}
+
+:is(.dark .dt-nav-btn:hover) {
+  background: rgb(63 63 70);
+  border-color: rgb(113 113 122);
+  color: rgb(228 228 231);
+}
+
+.dt-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dt-restart-btn {
+  background: transparent;
+  border-color: rgb(209 213 219);
+  color: rgb(107 114 128);
+  margin-left: auto;
+}
+
+.dt-restart-btn:hover {
+  border-color: rgb(99 102 241);
+  color: rgb(79 70 229);
+  background: rgb(238 242 255);
+}
+
+:is(.dark .dt-restart-btn:hover) {
+  border-color: rgb(129 140 248);
+  color: rgb(165 180 252);
+  background: rgb(49 46 129 / 0.3);
+}
+
+/* Error state */
+.dt-error {
+  padding: 1rem 1.25rem;
+  border-radius: 0.5rem;
+  background: rgb(254 242 242);
+  border: 1px solid rgb(252 165 165);
+  color: rgb(185 28 28);
+  font-size: 0.9rem;
+}
+
+:is(.dark .dt-error) {
+  background: rgb(127 29 29 / 0.2);
+  border-color: rgb(239 68 68 / 0.4);
+  color: rgb(252 165 165);
+}
+
+/* Animations */
+@keyframes dt-slide-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dt-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  window.DecisionTree = window.DecisionTree || {};
+
+  /**
+   * Initialize a decision tree widget.
+   * @param {string} containerId - The ID of the container element.
+   * @param {object} treeData    - The tree data object.
+   */
+  window.DecisionTree.init = function(containerId, treeData) {
+    var container = document.getElementById(containerId);
+    if (!container) return;
+
+    var state = {
+      current: treeData.start || 'start',
+      history: []   // Array of {nodeId, choiceText} for breadcrumb + back
+    };
+
+    function getNode(id) {
+      return treeData.nodes && treeData.nodes[id];
+    }
+
+    function render() {
+      var node = getNode(state.current);
+      if (!node) {
+        container.innerHTML = '<div class="dt-error">Decision tree error: node "' + state.current + '" not found.</div>';
+        return;
+      }
+      if (node.type === 'result') {
+        renderResult(node);
+      } else {
+        renderQuestion(node);
+      }
+    }
+
+    function buildBreadcrumb() {
+      if (state.history.length === 0) return '';
+      var parts = state.history.map(function(h) {
+        return '<span class="dt-breadcrumb-step">'
+          + '<span title="' + escHtml(h.choiceText) + '">' + escHtml(truncate(h.choiceText, 28)) + '</span>'
+          + '</span>';
+      });
+      return '<div class="dt-breadcrumb">'
+        + parts.join('<span class="dt-breadcrumb-sep">›</span>')
+        + '<span class="dt-breadcrumb-sep">›</span>'
+        + '</div>';
+    }
+
+    function renderQuestion(node) {
+      var html = '<div class="dt-question">';
+      html += buildBreadcrumb();
+      html += '<div class="dt-question-label">Step ' + (state.history.length + 1) + '</div>';
+      html += '<p class="dt-question-text">' + escHtml(node.text) + '</p>';
+      if (node.description) {
+        html += '<p class="dt-question-desc">' + escHtml(node.description) + '</p>';
+      }
+      html += '<div class="dt-options">';
+      (node.options || []).forEach(function(opt, i) {
+        html += '<button class="dt-option-btn" data-index="' + i + '">'
+          + '<span>' + escHtml(opt.text) + '</span>'
+          + '<svg class="dt-option-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">'
+          + '<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>'
+          + '</svg>'
+          + '</button>';
+      });
+      html += '</div>';
+      html += buildNav(false);
+      html += '</div>';
+
+      container.innerHTML = '<div class="dt-card">' + html + '</div>';
+
+      // Bind option buttons
+      container.querySelectorAll('.dt-option-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var idx = parseInt(btn.getAttribute('data-index'), 10);
+          var opt = node.options[idx];
+          if (!opt) return;
+          state.history.push({ nodeId: state.current, choiceText: opt.text });
+          state.current = opt.next;
+          render();
+        });
+      });
+      bindNav();
+    }
+
+    function renderResult(node) {
+      var html = '<div class="dt-result">';
+      html += buildBreadcrumb();
+      html += '<div class="dt-result-label">Result</div>';
+      html += '<p class="dt-result-title">' + escHtml(node.text) + '</p>';
+      if (node.description) {
+        html += '<div class="dt-result-desc">' + node.description + '</div>';
+      }
+      if (node.links && node.links.length > 0) {
+        html += '<div class="dt-result-links">';
+        node.links.forEach(function(link) {
+          var isExt = link.url && (link.url.startsWith('http://') || link.url.startsWith('https://'));
+          var extClass = isExt ? ' dt-result-link-ext' : '';
+          var extAttr = isExt ? ' target="_blank" rel="noopener"' : '';
+          html += '<a href="' + escHtml(link.url) + '" class="dt-result-link' + extClass + '"' + extAttr + '>'
+            + escHtml(link.text)
+            + (isExt ? ' <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3.5 3a.5.5 0 0 0 0 1H7.3L2.15 9.15a.5.5 0 1 0 .7.7L8 4.7V8.5a.5.5 0 0 0 1 0v-5a.5.5 0 0 0-.5-.5h-5z"/></svg>' : '')
+            + '</a>';
+        });
+        html += '</div>';
+      }
+      html += buildNav(true);
+      html += '</div>';
+
+      container.innerHTML = '<div class="dt-card">' + html + '</div>';
+      bindNav();
+    }
+
+    function buildNav(isResult) {
+      var canBack = state.history.length > 0;
+      var html = '<div class="dt-nav">';
+      html += '<button class="dt-nav-btn dt-back-btn"' + (canBack ? '' : ' disabled') + '>'
+        + '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">'
+        + '<path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>'
+        + '</svg> Back</button>';
+      html += '<button class="dt-nav-btn dt-restart-btn">'
+        + '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">'
+        + '<path d="M2 7a5 5 0 1 0 1-3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>'
+        + '<path d="M2 2v3h3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>'
+        + '</svg> Start Over</button>';
+      html += '</div>';
+      return html;
+    }
+
+    function bindNav() {
+      var backBtn = container.querySelector('.dt-back-btn');
+      var restartBtn = container.querySelector('.dt-restart-btn');
+      if (backBtn && !backBtn.disabled) {
+        backBtn.addEventListener('click', function() {
+          var prev = state.history.pop();
+          if (prev) { state.current = prev.nodeId; render(); }
+        });
+      }
+      if (restartBtn) {
+        restartBtn.addEventListener('click', function() {
+          state.current = treeData.start || 'start';
+          state.history = [];
+          render();
+        });
+      }
+    }
+
+    function escHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function truncate(str, len) {
+      if (!str) return '';
+      return str.length > len ? str.slice(0, len) + '…' : str;
+    }
+
+    render();
+  };
+})();
+</script>
+{{- end -}}
