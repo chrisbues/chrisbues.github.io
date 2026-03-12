@@ -412,7 +412,7 @@
     function renderQuestion(node) {
       var html = '<div class="dt-question">';
       html += buildBreadcrumb();
-      html += '<div class="dt-question-label">Question ' + (state.history.length + 1) + '</div>';
+      html += '<div class="dt-question-label">Step ' + (state.history.length + 1) + '</div>';
       html += '<p class="dt-question-text">' + escHtml(node.text) + '</p>';
       if (node.description) {
         html += '<p class="dt-question-desc">' + escHtml(node.description) + '</p>';
