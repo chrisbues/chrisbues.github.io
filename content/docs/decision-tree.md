@@ -4,6 +4,7 @@ description: How to use the decision-tree shortcode to add interactive, branchin
 date: 2025-01-01
 decision_tree: true
 toc: true
+draft: true
 ---
 
 The `decision-tree` shortcode renders an interactive, step-by-step decision tree — one question at a time — with **Back** and **Start Over** navigation, a breadcrumb trail, and optional result links. It works in both light and dark mode.

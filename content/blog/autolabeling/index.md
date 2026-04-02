@@ -141,3 +141,5 @@ Let me know if you see any errors or omissions! This stuff is spread all over th
 | **Downstream Inheritance**     | Sensitivity label applied      | Inheritance source, affected items                                    | Activity Explorer                                 | [Get started with activity explorer](https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer) |
 
 {{< /gridjs-md >}}
+
+*Last verified against Microsoft Learn documentation — March 2026.*
