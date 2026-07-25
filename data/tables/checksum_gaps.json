@@ -1,0 +1,76 @@
+{
+ "columns": [
+  "Jurisdiction",
+  "Sensitive info type",
+  "Grade",
+  "FP risk",
+  "Confidence",
+  "Algorithm Purview omits"
+ ],
+ "rows": [
+  [
+   "United Kingdom",
+   "[U.K. Unique Taxpayer Reference Number](https://learn.microsoft.com/en-us/purview/sit-defn-uk-unique-taxpayer-reference-number)",
+   "E",
+   64,
+   "verified",
+   "Leading digit is a mod-11 check over the following nine, weights 6,7,8,9,10,5,4,3,2. HMRC publishes the algorithm in its Self Assessment reference checker."
+  ],
+  [
+   "Cyprus",
+   "[Cyprus tax identification number](https://learn.microsoft.com/en-us/purview/sit-defn-cyprus-tax-identification-number)",
+   "C",
+   59,
+   "documented",
+   "Trailing letter is a check character computed over the eight digits."
+  ],
+  [
+   "Greece",
+   "[Greek Tax Identification Number](https://learn.microsoft.com/en-us/purview/sit-defn-greece-tax-identification-number)",
+   "D",
+   59,
+   "documented",
+   "AFM: ninth digit is a mod-11 check over the first eight with powers-of-two weights."
+  ],
+  [
+   "Saudi Arabia",
+   "[Saudi Arabia National ID](https://learn.microsoft.com/en-us/purview/sit-defn-saudi-arabia-national-id)",
+   "D",
+   44,
+   "documented",
+   "Luhn check over ten digits. The leading digit is 1 for citizens, 2 for residents."
+  ],
+  [
+   "Croatia",
+   "[Croatia personal identification (OIB) number](https://learn.microsoft.com/en-us/purview/sit-defn-croatia-personal-identification-number)",
+   "B",
+   40,
+   "documented",
+   "OIB carries an ISO 7064 MOD 11,10 check digit."
+  ],
+  [
+   "South Korea",
+   "[South Korea resident registration number](https://learn.microsoft.com/en-us/purview/sit-defn-south-korea-resident-registration-number)",
+   "B",
+   38,
+   "documented",
+   "Thirteenth digit is a mod-11 check with weights 2,3,4,5,6,7,8,9,2,3,4,5. The first six digits are also a valid YYMMDD date and the seventh encodes century and sex, so both are checkable."
+  ],
+  [
+   "Mexico",
+   "[Mexico Unique Population Registry Code (CURP)](https://learn.microsoft.com/en-us/purview/sit-defn-mexico-unique-population-registry-code)",
+   "A",
+   22,
+   "documented",
+   "Eighteenth character is a check digit over the preceding seventeen mapped to base 36."
+  ],
+  [
+   "India",
+   "[India permanent account number (PAN)](https://learn.microsoft.com/en-us/purview/sit-defn-india-permanent-account-number)",
+   "B",
+   11,
+   "documented",
+   "Tenth character is a check alphabet. The algorithm is widely implemented but not officially published by the Income Tax Department."
+  ]
+ ]
+}

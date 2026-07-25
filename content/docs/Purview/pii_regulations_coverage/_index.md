@@ -21,6 +21,7 @@ The short answer is that coverage is broad but *quality is wildly uneven*, and t
   {{< card link="regulations" title="Global regulation index" subtitle="74 jurisdictions — laws, regulators, breach clocks, and whether national ID numbers are singled out for special treatment." >}}
   {{< card link="coverage" title="Regulation → SIT coverage matrix" subtitle="Which identifier classes Purview covers for each jurisdiction, and the six regulated countries with no built-in SITs at all." >}}
   {{< card link="identifier-difficulty" title="Identifier difficulty ranking" subtitle="All 93 national ID / social security / tax ID SITs ranked by false-positive risk. The core of this research." >}}
+  {{< card link="improving-weak-sits" title="Improving weak SITs" subtitle="What to actually do about the bad ones — six levers, a per-SIT remediation plan, and eight identifiers whose real checksum Purview ignores." >}}
   {{< card link="keyword-collisions" title="Keyword collision analysis" subtitle="Why a Croatian ID card SIT fires on a UK tax reference — measured across 1,498 distinct keywords." >}}
   {{< card link="catalog" title="Full SIT catalogue" subtitle="All 324 built-in SITs with format, checksum, confidence tiers, proximity, and scores." >}}
   {{< card link="methodology" title="Methodology & limitations" subtitle="How the scores are computed, where the data comes from, and what this analysis cannot tell you." >}}
