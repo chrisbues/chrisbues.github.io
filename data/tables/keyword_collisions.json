@@ -1,0 +1,1984 @@
+{
+ "columns": [
+  "Jurisdiction A",
+  "Jurisdiction B",
+  "Shared keywords",
+  "Examples"
+ ],
+ "rows": [
+  [
+   "Czechia",
+   "Slovakia",
+   24,
+   "`birth number`, `daňové číslo`, `national number`, `nationalnumber`, `personalidnumber`, `rodne cislo`"
+  ],
+  [
+   "Czechia",
+   "Denmark",
+   21,
+   "`identity number`, `national number`, `nationalnumber`, `personal id number`, `personalidnumber`, `social security number`"
+  ],
+  [
+   "Denmark",
+   "Slovakia",
+   20,
+   "`identification number`, `national number`, `nationalnumber`, `personalidnumber`, `social security number`, `ssn`"
+  ],
+  [
+   "Finland",
+   "Sweden",
+   20,
+   "`id no`, `id number`, `identification number`, `identity number`, `personal id`, `personnummer`"
+  ],
+  [
+   "Romania",
+   "Slovenia",
+   20,
+   "`national id`, `personal numeric code`, `tax file no`, `tax file number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "Spain",
+   19,
+   "`insurance number`, `social security no`, `social security number`, `socialsecurityno`, `ssn`, `tax id`"
+  ],
+  [
+   "Czechia",
+   "Estonia",
+   19,
+   "`national identification number`, `national number`, `personal id number`, `personal identification number`, `personalidnumber`, `tax id`"
+  ],
+  [
+   "Czechia",
+   "Spain",
+   19,
+   "`insurance number`, `national identification number`, `personal identification number`, `social security number`, `ssn`, `tax id`"
+  ],
+  [
+   "Denmark",
+   "Finland",
+   19,
+   "`identification number`, `identity number`, `personalidnumber`, `personnummer`, `social security number`, `tax id`"
+  ],
+  [
+   "France",
+   "Spain",
+   19,
+   "`national identification number`, `national identity`, `nationalidno`, `social security number`, `ssn`, `tax id`"
+  ],
+  [
+   "Germany",
+   "Luxembourg",
+   19,
+   "`personal id`, `steuer id`, `steueridentifikationsnummer`, `steuernummer`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Italy",
+   "Latvia",
+   19,
+   "`fiscal code`, `personal certificate number`, `personal code`, `personal id code`, `personal id number`, `personalcodeno`"
+  ],
+  [
+   "Latvia",
+   "Slovenia",
+   19,
+   "`identification number`, `national id`, `personal code`, `personal number`, `personal numeric code`, `tax file number`"
+  ],
+  [
+   "Lithuania",
+   "Malta",
+   19,
+   "`citizen service number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Lithuania",
+   "Netherlands",
+   19,
+   "`citizen service number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Lithuania",
+   "Romania",
+   19,
+   "`national identification number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Malta",
+   "Netherlands",
+   19,
+   "`citizen service number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Portugal",
+   "Slovakia",
+   19,
+   "`id number`, `identification no`, `identification number`, `identity card no`, `identity card number`, `tax id`"
+  ],
+  [
+   "Romania",
+   "Spain",
+   19,
+   "`insurance number`, `national identification number`, `tax file no`, `tax file number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "Czechia",
+   18,
+   "`identity number`, `insurance number`, `social security number`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "Denmark",
+   18,
+   "`identity number`, `krankenkassennummer`, `social security number`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "France",
+   18,
+   "`national id`, `social security code`, `social security number`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "Greece",
+   18,
+   "`social security no`, `social security number`, `socialsecurityno`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Denmark",
+   "Sweden",
+   18,
+   "`identification number`, `identity number`, `personal id number`, `personnummer`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Finland",
+   "Slovakia",
+   18,
+   "`id number`, `identification number`, `personalidnumber`, `social security number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Greece",
+   "Spain",
+   18,
+   "`social security no`, `social security number`, `socialsecurityno`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Hungary",
+   "Slovakia",
+   18,
+   "`id number`, `identification number`, `social security number`, `ssn`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Lithuania",
+   "Slovenia",
+   18,
+   "`personal code`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Malta",
+   "Romania",
+   18,
+   "`personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Netherlands",
+   "Romania",
+   18,
+   "`personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Netherlands",
+   "Slovenia",
+   18,
+   "`personal number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Slovakia",
+   "Spain",
+   18,
+   "`social security number`, `ssn`, `tax file no`, `tax file number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Austria",
+   "Hungary",
+   17,
+   "`social security no`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Czechia",
+   "Finland",
+   17,
+   "`identity number`, `personalidnumber`, `social security number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Czechia",
+   "France",
+   17,
+   "`national identification number`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Czechia",
+   "Latvia",
+   17,
+   "`birth number`, `personal id number`, `personal number`, `social security number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Czechia",
+   "Romania",
+   17,
+   "`insurance number`, `national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Czechia",
+   "Sweden",
+   17,
+   "`identity no`, `identity number`, `personal id number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Denmark",
+   "Estonia",
+   17,
+   "`national number`, `personal id number`, `personalidnumber`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Denmark",
+   "Hungary",
+   17,
+   "`identification number`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Denmark",
+   "Spain",
+   17,
+   "`nationalid`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Finland",
+   "Hungary",
+   17,
+   "`id number`, `identification number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Finland",
+   "Portugal",
+   17,
+   "`id number`, `identification number`, `national id card`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "France",
+   "Hungary",
+   17,
+   "`social security number`, `socialsecuritynumber`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Germany",
+   "Sweden",
+   17,
+   "`id-nummer`, `identity number`, `personal id`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Greece",
+   "Hungary",
+   17,
+   "`social security no`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Hungary",
+   "Spain",
+   17,
+   "`social security no`, `social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Latvia",
+   "Slovakia",
+   17,
+   "`birth number`, `identification number`, `social security number`, `tax file number`, `tax id`, `tax identification no`"
+  ],
+  [
+   "Malta",
+   "Slovenia",
+   17,
+   "`personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Portugal",
+   "Sweden",
+   17,
+   "`id number`, `identification no`, `identification number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Slovakia",
+   "Slovenia",
+   17,
+   "`identification number`, `tax file no`, `tax file number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Slovakia",
+   "Sweden",
+   17,
+   "`id number`, `identification no`, `identification number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Slovenia",
+   "Spain",
+   17,
+   "`tax file no`, `tax file number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Finland",
+   16,
+   "`identity number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Germany",
+   16,
+   "`identity number`, `steuernummer`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Romania",
+   16,
+   "`insurance number`, `national id`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Slovakia",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Croatia",
+   "Czechia",
+   16,
+   "`national identification number`, `personal identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Croatia",
+   "Estonia",
+   16,
+   "`national identification number`, `personal identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Croatia",
+   "Spain",
+   16,
+   "`national identification number`, `personal identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Cyprus",
+   "Czechia",
+   16,
+   "`national identification number`, `personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Cyprus",
+   "Estonia",
+   16,
+   "`national identification number`, `personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Czechia",
+   "Greece",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Czechia",
+   "Hungary",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Czechia",
+   "Lithuania",
+   16,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "Netherlands",
+   16,
+   "`personal number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Denmark",
+   "France",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Denmark",
+   "Germany",
+   16,
+   "`identifikationsnummer`, `identity number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Denmark",
+   "Greece",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Denmark",
+   "Italy",
+   16,
+   "`personal id number`, `tax code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Denmark",
+   "Latvia",
+   16,
+   "`identification number`, `personal id number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Denmark",
+   "Slovenia",
+   16,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Italy",
+   16,
+   "`personal code`, `personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Estonia",
+   "Latvia",
+   16,
+   "`personal code`, `personal id number`, `personal identification code`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Estonia",
+   "Lithuania",
+   16,
+   "`national identification number`, `personal code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Estonia",
+   "Slovakia",
+   16,
+   "`national number`, `personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Estonia",
+   "Spain",
+   16,
+   "`national identification number`, `personal identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Finland",
+   "Germany",
+   16,
+   "`identity number`, `personal id`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Finland",
+   "Luxembourg",
+   16,
+   "`personal id`, `personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "France",
+   "Greece",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "France",
+   "Latvia",
+   16,
+   "`national id`, `social insurance number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "France",
+   "Romania",
+   16,
+   "`national id`, `national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "France",
+   "Slovakia",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Greece",
+   "Slovakia",
+   16,
+   "`social security number`, `ssn`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Hungary",
+   "Portugal",
+   16,
+   "`id number`, `identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Hungary",
+   "Sweden",
+   16,
+   "`id number`, `identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Latvia",
+   "Romania",
+   16,
+   "`national id`, `personal numeric code`, `tax file number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Latvia",
+   "Sweden",
+   16,
+   "`id`, `identification number`, `personal id number`, `tax id`, `tax identification no`, `tax identification number`"
+  ],
+  [
+   "Lithuania",
+   "Spain",
+   16,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Romania",
+   "Slovakia",
+   16,
+   "`tax file no`, `tax file number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Latvia",
+   15,
+   "`national id`, `social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Luxembourg",
+   15,
+   "`steuernummer`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Austria",
+   "Slovenia",
+   15,
+   "`national id`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Austria",
+   "Sweden",
+   15,
+   "`identity number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Austria",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Croatia",
+   "Cyprus",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Croatia",
+   "France",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Croatia",
+   "Lithuania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Croatia",
+   "Romania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Denmark",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "France",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Greece",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Italy",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Lithuania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Portugal",
+   15,
+   "`identity card number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Romania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Slovakia",
+   15,
+   "`identity card number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Spain",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Sweden",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "Germany",
+   15,
+   "`identity number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "Italy",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "Luxembourg",
+   15,
+   "`personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "Malta",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Czechia",
+   "Slovenia",
+   15,
+   "`personal number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Czechia",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Denmark",
+   "Lithuania",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Denmark",
+   "Luxembourg",
+   15,
+   "`personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Denmark",
+   "Malta",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Denmark",
+   "Netherlands",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Denmark",
+   "Portugal",
+   15,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Denmark",
+   "Romania",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Denmark",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Finland",
+   15,
+   "`personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "France",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Luxembourg",
+   15,
+   "`personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Romania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Slovenia",
+   15,
+   "`personal code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Estonia",
+   "Sweden",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Finland",
+   "France",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Finland",
+   "Greece",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Finland",
+   "Latvia",
+   15,
+   "`identification number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Finland",
+   "Slovenia",
+   15,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Finland",
+   "Spain",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Finland",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "France",
+   "Lithuania",
+   15,
+   "`national identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "France",
+   "Luxembourg",
+   15,
+   "`numéro d'identification fiscale`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "France",
+   "Slovenia",
+   15,
+   "`national id`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "France",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Germany",
+   "Greece",
+   15,
+   "`identity card`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Germany",
+   "Slovenia",
+   15,
+   "`identity card`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Greece",
+   "Slovenia",
+   15,
+   "`identity card`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Greece",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Hungary",
+   "Latvia",
+   15,
+   "`identification number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Hungary",
+   "Poland",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Slovenia",
+   15,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Hungary",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Italy",
+   "Lithuania",
+   15,
+   "`personal code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Italy",
+   "Slovenia",
+   15,
+   "`personal code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Italy",
+   "Sweden",
+   15,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Latvia",
+   "Lithuania",
+   15,
+   "`personal code`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Latvia",
+   "Netherlands",
+   15,
+   "`personal number`, `personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Latvia",
+   "Spain",
+   15,
+   "`social security number`, `tax file number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Latvia",
+   "United Kingdom",
+   15,
+   "`national insurance number`, `social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`"
+  ],
+  [
+   "Luxembourg",
+   "Slovakia",
+   15,
+   "`personalidnumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Luxembourg",
+   "Sweden",
+   15,
+   "`personal id`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Luxembourg",
+   "United Kingdom",
+   15,
+   "`social security`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Malta",
+   "Spain",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "Spain",
+   15,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Portugal",
+   "Slovenia",
+   15,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Romania",
+   "United Kingdom",
+   15,
+   "`insurancenumber`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Slovakia",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Slovenia",
+   "Sweden",
+   15,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Spain",
+   "United Kingdom",
+   15,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Sweden",
+   "United Kingdom",
+   15,
+   "`tax file`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Argentina",
+   "Colombia",
+   14,
+   "`cedula`, `cédula`, `tax`, `tax id`, `tax identification`, `tax identity`"
+  ],
+  [
+   "Austria",
+   "Croatia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Cyprus",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Estonia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Lithuania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Austria",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Denmark",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Finland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Germany",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Greece",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Hungary",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Slovenia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Finland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Germany",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Hungary",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Latvia",
+   14,
+   "`personal id number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Cyprus",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "Slovenia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Cyprus",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Czechia",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Czechia",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Denmark",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Germany",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Greece",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Hungary",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Estonia",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Lithuania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Finland",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Germany",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "France",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Hungary",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Lithuania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "Spain",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Germany",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Latvia",
+   14,
+   "`social security number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Greece",
+   "Lithuania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Greece",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Italy",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Lithuania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Hungary",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "Spain",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Italy",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Latvia",
+   "Malta",
+   14,
+   "`personal numeric code`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Latvia",
+   "Portugal",
+   14,
+   "`identification number`, `tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`"
+  ],
+  [
+   "Lithuania",
+   "Luxembourg",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Lithuania",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Lithuania",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Lithuania",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Lithuania",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Lithuania",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Malta",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Netherlands",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Slovenia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Luxembourg",
+   "Spain",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Malta",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Malta",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Malta",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Malta",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Malta",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "Poland",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Netherlands",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Portugal",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Slovakia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Slovenia",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Spain",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Poland",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Portugal",
+   "Romania",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Portugal",
+   "Spain",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Portugal",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Romania",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Slovenia",
+   "United Kingdom",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Spain",
+   "Sweden",
+   14,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `tax registration number`"
+  ],
+  [
+   "Croatia",
+   "Latvia",
+   13,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `taxid`"
+  ],
+  [
+   "Germany",
+   "Latvia",
+   13,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `taxid`"
+  ],
+  [
+   "Latvia",
+   "Luxembourg",
+   13,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `taxid`"
+  ],
+  [
+   "Latvia",
+   "Poland",
+   13,
+   "`tax id`, `tax identification no`, `tax identification number`, `tax no`, `tax number`, `taxid`"
+  ],
+  [
+   "Argentina",
+   "Spain",
+   9,
+   "`dni`, `documento nacional de identidad`, `número de contribuyente`, `número de identificación fiscal`, `tax id`, `tax no`"
+  ],
+  [
+   "Austria",
+   "Colombia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Croatia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Cyprus",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Czechia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Denmark",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Estonia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Finland",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "France",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Germany",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Greece",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Hungary",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Italy",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Latvia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Lithuania",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Luxembourg",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Malta",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Netherlands",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Poland",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Portugal",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Romania",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Russia",
+   8,
+   "`tax id`, `tax identification`, `taxid`, `taxpayer`, `taxpayer id`, `taxpayer no`"
+  ],
+  [
+   "Colombia",
+   "Slovakia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Slovenia",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Spain",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "Sweden",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Colombia",
+   "United Kingdom",
+   8,
+   "`tax id`, `tax no`, `tax number`, `taxid`, `taxidnumber`, `tin`"
+  ],
+  [
+   "Ecuador",
+   "United Kingdom",
+   8,
+   "`insurance`, `insurancenumber`, `national insurance number`, `nationalinsurance`, `nationalinsurancenumber`, `ni`"
+  ]
+ ]
+}

@@ -1,0 +1,766 @@
+{
+ "columns": [
+  "Keyword",
+  "SITs sharing it",
+  "Jurisdictions",
+  "Example SITs"
+ ],
+ "rows": [
+  [
+   "`passport number`",
+   42,
+   "AE, AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, JP, KR, LT, LU, LV, MT, MY, NL, PH, PL, PT, RO, RU, SE, SG, SI, SK, TW, UA, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`passport no`",
+   41,
+   "AE, AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, KR, LT, LU, LV, MT, MY, NL, PH, PL, PT, RO, RU, SE, SG, SI, SK, TW, UA, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`passport`",
+   40,
+   "AE, AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, JP, KR, LT, LU, LV, MT, MY, NL, PH, PL, PT, RO, RU, SE, SG, SI, SK, TW, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`passportno`",
+   37,
+   "AE, AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, KR, LT, LU, LV, MT, MY, NL, PH, PL, PT, RO, RU, SE, SG, SI, SK",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`passportnumber`",
+   37,
+   "AE, AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, KR, LT, LU, LV, MT, MY, NL, PL, PT, RO, RU, SE, SG, SI, SK, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`driver lic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverslic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`drivers lic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`drivers lics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'lic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'lics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver' lic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver' lics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'slic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'slics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver's lic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver's lics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverlic`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverlics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver lics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverslics`",
+   34,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK, US",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`passport numbers`",
+   34,
+   "AE, AT, AU, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, KR, LT, LU, LV, MT, MY, NL, PL, PT, RO, SE, SG, SI, SK, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`drivers licence`",
+   33,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver's licence`",
+   33,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`passportnumbers`",
+   33,
+   "AE, AT, AU, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, ID, IE, IT, KR, LT, LU, LV, MT, MY, NL, PL, PT, RO, SE, SG, SI, SK",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`driverlicense`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driverlicenses`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driverslicense`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driverslicenses`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`drivers license`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver'slicense`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver'slicenses`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver's license`",
+   33,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driverlicence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverlicences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver licence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver licences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverslicence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driverslicences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`drivers licences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'licence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'licences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver' licence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver' licences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'slicence`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver'slicences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver's licences`",
+   32,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, NZ, PL, PT, RO, SE, SI, SK",
+   "Australia Driver's License Number, Austria Driver's License Number, Belgium driver's license number"
+  ],
+  [
+   "`driver license`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver licenses`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`drivers licenses`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver'license`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver'licenses`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver' license`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver' licenses`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver's licenses`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`dl`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`dls`",
+   32,
+   "AT, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, JP, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`tax id`",
+   30,
+   "AR, AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, RU, SE, SI, SK, US",
+   "Argentina Unique Tax Identification Key (CUIT/CUIL), Austria tax identification number, Colombia tax identification number"
+  ],
+  [
+   "`taxid`",
+   30,
+   "AR, AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, RU, SE, SI, SK, US",
+   "Argentina Unique Tax Identification Key (CUIT/CUIL), Austria tax identification number, Colombia tax identification number"
+  ],
+  [
+   "`passportid`",
+   30,
+   "AT, AU, BE, BG, CA, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`passports`",
+   29,
+   "AT, AU, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK, US",
+   "Australia passport number, Austria passport number, Belgium passport number"
+  ],
+  [
+   "`driving licence`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving license`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`dlno`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv lic`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv licen`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv license`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv licenses`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv licence`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driv licences`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver licen`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`drivers licen`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driver's licen`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving lic`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving licen`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving licenses`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving licences`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`driving permit`",
+   29,
+   "AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`tin`",
+   29,
+   "AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, RU, SE, SI, SK, US",
+   "Austria tax identification number, Colombia tax identification number, Croatia identity card number"
+  ],
+  [
+   "`taxidnumber`",
+   28,
+   "AR, AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Argentina Unique Tax Identification Key (CUIT/CUIL), Austria tax identification number, Colombia tax identification number"
+  ],
+  [
+   "`tax number`",
+   28,
+   "AR, AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Argentina Unique Tax Identification Key (CUIT/CUIL), Austria tax identification number, Colombia tax identification number"
+  ],
+  [
+   "`tax no`",
+   28,
+   "AR, AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Argentina Unique Tax Identification Key (CUIT/CUIL), Austria tax identification number, Colombia tax identification number"
+  ],
+  [
+   "`dl no`",
+   28,
+   "AT, BE, BG, CY, CZ, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`dl number`",
+   28,
+   "AT, BE, BG, CY, CZ, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IN, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria Driver's License Number, Belgium driver's license number, Bulgaria driver's license number"
+  ],
+  [
+   "`tin id`",
+   27,
+   "AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Colombia tax identification number, Croatia identity card number"
+  ],
+  [
+   "`tin no`",
+   27,
+   "AT, CO, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Colombia tax identification number, Croatia identity card number"
+  ],
+  [
+   "`tax identification no`",
+   26,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`tax identification number`",
+   26,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`taxidno`",
+   26,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`taxno`",
+   26,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`taxnumber`",
+   26,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`tax registration number`",
+   25,
+   "AT, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HR, HU, IT, LT, LU, MT, NL, PL, PT, RO, SE, SI, SK",
+   "Austria tax identification number, Croatia identity card number, Croatia personal identification (OIB) number"
+  ],
+  [
+   "`date of issue`",
+   24,
+   "AT, BE, BG, CZ, DK, EE, ES, FI, FR, HU, IE, IT, LT, LU, LV, MT, PL, PT, QA, RO, SE, SI, SK, US",
+   "Austria passport number, Belgium passport number, Bulgaria passport number"
+  ],
+  [
+   "`date of expiry`",
+   24,
+   "AT, BE, BG, CZ, DK, EE, ES, FI, FR, HU, IE, IT, LT, LU, LV, MT, PL, PT, QA, RO, SE, SI, SK, US",
+   "Austria passport number, Belgium passport number, Bulgaria passport number"
+  ],
+  [
+   "`social security number`",
+   14,
+   "AT, BG, CH, CZ, DK, ES, FI, FR, GB, GR, HU, LV, SK, US",
+   "Austria social security number, Bulgaria uniform civil number, Czech personal identity number"
+  ],
+  [
+   "`ssn`",
+   13,
+   "AT, BG, CA, CH, CZ, DK, ES, FR, GR, HU, SK, US",
+   "Austria social security number, Bulgaria uniform civil number, Canada social insurance number"
+  ],
+  [
+   "`identification number`",
+   13,
+   "AE, BG, CA, DK, FI, HU, LV, PT, SE, SI, SK, TH, US",
+   "Bulgaria uniform civil number, Canada driver's license number, Denmark personal identification number"
+  ],
+  [
+   "`national identification number`",
+   13,
+   "CA, CL, CY, CZ, EC, EE, ES, FR, HR, LT, PH, RO",
+   "Canada social insurance number, Chile identity card number, Croatia identity card number"
+  ],
+  [
+   "`id number`",
+   13,
+   "AE, EC, FI, HU, IL, NO, PH, PT, SA, SE, SK, TH, US",
+   "Ecuador Unique Identification Number, Finland national ID, Hungary personal identification number"
+  ],
+  [
+   "`national id`",
+   11,
+   "AT, BG, BR, CA, CL, EC, FR, LV, PH, RO, SI",
+   "Austria identity card, Brazil National ID Card (RG), Bulgaria uniform civil number"
+  ],
+  [
+   "`identity number`",
+   8,
+   "AT, CZ, DE, DK, EC, FI, IL, SE",
+   "Austria identity card, Czech personal identity number, Denmark personal identification number"
+  ],
+  [
+   "`vat number`",
+   8,
+   "AT, BE, DE, FR, HU, IT, NL, PL",
+   "Austria Value Added Tax (VAT) Number, Belgium value added tax number, France value added tax number"
+  ],
+  [
+   "`identity card`",
+   8,
+   "BR, DE, EC, GR, HK, PH, SI, ZA",
+   "Brazil National ID Card (RG), Ecuador Unique Identification Number, Germany identity card number"
+  ],
+  [
+   "`personalidnumber`",
+   8,
+   "BG, CZ, DK, EE, FI, LU, MX, SK",
+   "Bulgaria uniform civil number, Czech personal identity number, Denmark personal identification number"
+  ],
+  [
+   "`personal id number`",
+   8,
+   "CH, CY, CZ, DK, EE, IT, LV, SE",
+   "Cyprus identity card, Czech personal identity number, Denmark personal identification number"
+  ],
+  [
+   "`vat`",
+   7,
+   "AT, BE, DE, FR, HU, IT, NL",
+   "Austria Value Added Tax (VAT) Number, Belgium value added tax number, France value added tax number"
+  ],
+  [
+   "`permis de conduire`",
+   7,
+   "BE, CA, DE, EE, FI, FR, NL",
+   "Belgium driver's license number, Canada driver's license number, Estonia driver's license number"
+  ],
+  [
+   "`personal id`",
+   7,
+   "BG, DE, FI, IL, LU, MX, SE",
+   "Bulgaria uniform civil number, Finland national ID, Germany identity card number"
+  ],
+  [
+   "`uniqueidentityno`",
+   7,
+   "DK, LT, MT, NL, RO, SI",
+   "Denmark personal identification number, Lithuania personal code, Malta identity card number"
+  ],
+  [
+   "`personal numeric code`",
+   7,
+   "LT, LV, MT, NL, RO, SI",
+   "Latvia personal code, Lithuania personal code, Malta identity card number"
+  ],
+  [
+   "`unique identity number`",
+   7,
+   "ES, LT, MT, NL, RO, SI",
+   "Lithuania personal code, Malta identity card number, Malta Tax ID Number"
+  ],
+  [
+   "`tax file number`",
+   6,
+   "AU, ES, LV, RO, SI, SK",
+   "Australia tax file number, Latvia personal code, Romania personal numeric code (CNP)"
+  ],
+  [
+   "`insurance number`",
+   6,
+   "AE, AT, CH, CZ, ES, RO",
+   "Austria social security number, Czech personal identity number, Romania personal numeric code (CNP)"
+  ],
+  [
+   "`vat no`",
+   6,
+   "BE, DE, FR, IT, NL, PL",
+   "Belgium value added tax number, France value added tax number, Germany value added tax number"
+  ],
+  [
+   "`id`",
+   6,
+   "AE, CA, LV, SE, US, ZA",
+   "Canada driver's license number, Latvia personal code, South Africa identification number"
+  ],
+  [
+   "`identification`",
+   6,
+   "AE, CA, DE, NO, US, ZA",
+   "Canada driver's license number, Germany identity card number, Norway Identity Number"
+  ],
+  [
+   "`personal identification number`",
+   6,
+   "CZ, EE, ES, HR, NO",
+   "Croatia identity card number, Croatia personal identification (OIB) number, Czech personal identity number"
+  ],
+  [
+   "`unique identification number`",
+   6,
+   "CZ, LT, MT, NL, RO",
+   "Czech personal identity number, Lithuania personal code, Malta identity card number"
+  ],
+  [
+   "`passnummer`",
+   5,
+   "AT, BE, DE, LU, SE",
+   "Austria passport number, Belgium passport number, German Passport Number"
+  ],
+  [
+   "`social security no`",
+   5,
+   "AT, ES, GR, HU, US",
+   "Austria social security number, Greece Social Security Number (AMKA), Hungarian Social Security Number (TAJ)"
+  ],
+  [
+   "`national number`",
+   5,
+   "BG, CZ, DK, EE, SK",
+   "Bulgaria uniform civil number, Czech personal identity number, Denmark personal identification number"
+  ],
+  [
+   "`personal number`",
+   5,
+   "BG, CZ, LV, NL, SI",
+   "Bulgaria uniform civil number, Czech personal identity number, Latvia personal code"
+  ],
+  [
+   "`social security`",
+   5,
+   "CA, GB, LU, US",
+   "Canada social insurance number, Luxembourg National Identification Number (Non-natural persons), U.K. national insurance number (NINO)"
+  ],
+  [
+   "`passeport n°`",
+   5,
+   "DK, ES, FR, PL, SK",
+   "Denmark passport number, France passport number, Poland Passport Number"
+  ],
+  [
+   "`personnummer`",
+   5,
+   "DK, FI, NO, SE",
+   "Denmark personal identification number, Finland national ID, Norway Identity Number"
+  ],
+  [
+   "`personal code`",
+   5,
+   "EE, IT, LT, LV, SI",
+   "Estonia Personal Identification Code, Italy fiscal code, Latvia personal code"
+  ]
+ ]
+}

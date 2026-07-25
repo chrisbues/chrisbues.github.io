@@ -10,6 +10,7 @@ hugo_stats.json
 /.vscode/
 /data/*
 !/data/trees/
+!/data/tables/
 frontmatter.json
 /.github/instructions/
 /.github/pages-files/
