@@ -17,3 +17,10 @@ frontmatter.json
 Thumbs.db
 .obsidian/
 .pdf
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
