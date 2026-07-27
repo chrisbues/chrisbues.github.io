@@ -1,0 +1,19 @@
+{
+  // Static-assets-only Worker: no `main` script, Cloudflare serves ./public directly.
+  //
+  // Build settings to configure in the Cloudflare dashboard (Workers > Builds):
+  //   Build command:    git fetch --unshallow || true && hugo --gc --minify
+  //   Output directory: public
+  //   Build variables:  HUGO_VERSION = 0.147.7
+  //                     HUGO_ENVIRONMENT = production
+  //
+  // The `git fetch --unshallow` prefix matters: Cloudflare shallow-clones the repo,
+  // and enableGitInfo/displayUpdatedDate would otherwise stamp every page with the
+  // deploy date instead of its real last-modified date.
+  "name": "chrisbues-com",
+  "compatibility_date": "2026-07-27",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}
