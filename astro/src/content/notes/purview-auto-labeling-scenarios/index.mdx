@@ -1,0 +1,86 @@
+---
+title: Purview Sensitivity Label Auto-Labeling Scenarios
+summary: A comprehensive reference of every auto-labeling mechanism in Microsoft Purview Sensitivity Labels, and exactly what each one will and won't override.
+planted: 2026-01-14
+tended: 2026-03-01
+maturity: evergreen
+topics:
+  - Purview
+  - Sensitivity Labels
+---
+
+import OverrideMatrix from "../../../components/OverrideMatrix.tsx";
+import data from "../../../data/autolabeling-mechanisms.json";
+import hero from "./purview_auto_labeling_scenarios.png";
+import { Image } from "astro:assets";
+
+<Image src={hero} alt="Purview auto-labeling scenarios" />
+
+This is an article I've wanted to put together for a while: a comprehensive
+reference of all the different auto-labeling mechanisms available in Microsoft
+Purview Sensitivity Labels, organized by platform and location. This includes
+client-side and service-side auto-labeling, default labels from policies, and
+specific behaviors in SharePoint, Exchange, Teams, Power BI/Fabric, and
+hybrid/on-premises scenarios.
+
+Let me know if you see any errors or omissions! This stuff is spread all over
+the documentation, so it's possible I missed something.
+
+## Primary auto-labeling mechanisms
+
+Filter by platform, or search across every mechanism at once. Expand any row for
+how it works, what it keys off, and the source documentation.
+
+<OverrideMatrix
+  client:visible
+  questions={data.questions}
+  mechanisms={data.mechanisms}
+/>
+
+---
+
+## Default label from publishing policy behavior
+
+| Label Type | How Applied | Treated As | Can Be Overridden By Other Auto-Labeling? | Can Override Other Labels? |
+| --- | --- | --- | --- | --- |
+| **Default Label from Publishing Policy** | Applied to unlabeled content when created | **Automatically Applied** | Yes — by higher priority auto-labeling | Never |
+| **Default Label from SharePoint Library** | Applied to files in specific library | **Automatically Applied** | Yes — by higher priority or manual | Yes — lower priority auto/default labels |
+| **Manually Applied Label** | User explicitly selects label | **Manually Applied** | Almost never — except Exchange with explicit setting | Yes — with justification if configured |
+
+## Universal override rules
+
+| Rule | Description | Exceptions |
+| --- | --- | --- |
+| **Manual labels are protected** | Manually applied labels are almost never overridden by auto-labeling | Exchange service-side policies can be configured to override |
+| **Priority/order determines winner** | Labels have order numbers. Higher priority can replace lower priority through auto-labeling | Does not apply to manually applied labels |
+| **Default policy labels are passive** | Default labels from publishing policies never override any existing label (manual or automatic) | None |
+| **No downgrade in Power BI** | Power BI downstream inheritance never replaces with less restrictive label | None |
+| **Sublabel parent exception** | Client-side auto-labeling: if file has sublabel from parent X, and another sublabel from parent X matches, no action taken | Does not apply to service-side auto-labeling |
+| **80-item limit** | Power BI downstream inheritance limited to 80 items | If exceeded, no downstream inheritance occurs |
+
+## Label application priority
+
+Highest to lowest.
+
+| Priority | Label Type | Can Be Overridden? |
+| --- | --- | --- |
+| 1 | **Manually Applied** | Almost never |
+| 2 | **Auto-Applied (High Priority Label)** | No by lower priority; yes by higher priority or manual |
+| 3 | **Auto-Applied (Low Priority Label)** | Yes — by higher priority or manual |
+| 4 | **Default Label from Publishing Policy** | Yes — by any auto-labeling or manual |
+| 5 | **Unlabeled** | Yes — by any labeling mechanism |
+
+## Auditing & monitoring events
+
+| Activity | Event Name | Details Captured | Where to View |
+| --- | --- | --- | --- |
+| **Label Applied** | Sensitivity label applied | Source (manual/auto), label name, user, location, timestamp | Activity Explorer, Audit Log |
+| **Label Changed** | Sensitivity label changed | Old label, new label, upgrade/downgrade indicator, justification text | Activity Explorer, Audit Log |
+| **Label Removed** | Sensitivity label removed | Previous label, justification (if required), user | Activity Explorer, Audit Log |
+| **Library Default Applied** | Applied sensitivity label file | `ActionSourceDetails = 6` (library default), label GUID | Audit Log (SharePoint list activities) |
+| **Auto-Labeling Policy Match** | Various events based on policy | Policy name, rule matched, simulation vs production mode | Auto-labeling policy interface, Activity Explorer |
+| **Downstream Inheritance** | Sensitivity label applied | Inheritance source, affected items | Activity Explorer |
+
+---
+
+_Last verified against Microsoft Learn documentation — March 2026._

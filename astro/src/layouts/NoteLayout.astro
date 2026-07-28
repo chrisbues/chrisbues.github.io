@@ -1,0 +1,60 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  summary?: string;
+  planted: Date;
+  tended?: Date;
+  maturity: "seedling" | "growing" | "evergreen";
+  topics: string[];
+}
+const { title, summary, planted, tended, maturity, topics } = Astro.props;
+
+const MATURITY: Record<string, string> = {
+  seedling: "Seedling — early, rough, may be wrong",
+  growing: "Growing — usable, still being revised",
+  evergreen: "Evergreen — maintained reference",
+};
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+---
+
+<BaseLayout title={title} description={summary}>
+  <article>
+    <header class="mb-8 border-b border-border pb-6">
+      <h1 class="text-3xl font-bold tracking-tight text-ink">{title}</h1>
+      {summary && <p class="mt-2 text-lg text-muted">{summary}</p>}
+
+      <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
+        <span
+          title={MATURITY[maturity]}
+          class="rounded-full border border-accent bg-accent-soft px-2.5 py-1 font-medium text-accent"
+        >
+          {maturity}
+        </span>
+        {
+          topics.map((t) => (
+            <span class="rounded-full border border-border px-2.5 py-1 text-muted">
+              {t}
+            </span>
+          ))
+        }
+        <span class="text-muted">
+          {/* In a garden, "last tended" is the headline date. */}
+          {tended ? `Tended ${fmt(tended)}` : `Planted ${fmt(planted)}`}
+          {tended && <span class="opacity-70"> · planted {fmt(planted)}</span>}
+        </span>
+      </div>
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — the single source of truth for color.
+   ------------------------------------------------------------
+   Every value here was validated, not eyeballed:
+     - ink / muted / accent / border contrast checked against BOTH
+       surface and raised, in BOTH modes (see notes per token).
+     - status colors come from the dataviz reference palette and are
+       FIXED — never themed, never reused as a decorative color.
+
+   HOUSE RULES (enforced by `npm run lint:tokens`):
+     1. Components use these tokens. Never a raw hex/rgb value.
+     2. Never a `dark:` variant. Dark mode is a token swap, below.
+   ============================================================ */
+
+@theme {
+  /* -- surfaces & ink (cool neutral ramp) -- */
+  --color-surface: #fbfcfd;
+  --color-raised: #f1f5f7;
+  --color-border: #c5d1da; /* 1.51 on surface / 1.42 on raised */
+  --color-muted: #5c6a73; /* 5.43 / 5.09 — clears 4.5 */
+  --color-ink: #0e1518; /* 17.95 / 16.81 — clears 7 (AAA) */
+
+  /* -- accent: Ocean Depths teal, stepped down for link contrast -- */
+  --color-accent: #17706f; /* 5.70 / 5.34 — clears 4.5 as body-text link */
+  --color-accent-soft: #dcecec; /* tinted fill for active/selected chrome */
+
+  /* -- status: FIXED. icon + label always required (see below) -- */
+  --color-good: #0ca30c; /* 3.27 light / 5.53 dark */
+  --color-warn: #fab219; /* 1.79 light — sub-3 BY DESIGN, needs relief */
+  --color-critical: #d03b3b; /* 4.68 light / 3.86 dark */
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "Cascadia Code", monospace;
+}
+
+/* ------------------------------------------------------------
+   Dark mode = swap the variables. Nothing else changes, anywhere.
+   This is what replaces the 50 hand-written `.dark` override blocks
+   in the Hugo build.
+
+   Declared under BOTH scopes so the OS setting works and the
+   in-page toggle beats it in either direction.
+   ------------------------------------------------------------ */
+
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --color-surface: #0e1417;
+      --color-raised: #161d21;
+      --color-border: #303b43; /* 1.62 / 1.49 */
+      --color-muted: #92a2ac; /* 7.06 / 6.48 */
+      --color-ink: #e9eff2; /* 16.00 / 14.69 */
+      --color-accent: #56c2c0; /* 8.73 / 8.02 */
+      --color-accent-soft: #17302f;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-surface: #0e1417;
+    --color-raised: #161d21;
+    --color-border: #303b43;
+    --color-muted: #92a2ac;
+    --color-ink: #e9eff2;
+    --color-accent: #56c2c0;
+    --color-accent-soft: #17302f;
+  }
+
+  html {
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+
+  /* Screenshots are Microsoft portal chrome — bordered so they read as
+     inset artifacts rather than page background. */
+  .prose img {
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ------------------------------------------------------------
+   Prose: minimal long-form defaults written against tokens.
+   ------------------------------------------------------------ */
+
+@layer components {
+  .prose {
+    line-height: 1.7;
+    font-size: 1.0625rem;
+  }
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    line-height: 1.25;
+    font-weight: 650;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.011em;
+  }
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+  .prose h3 {
+    font-size: 1.25rem;
+  }
+  .prose p,
+  .prose ul,
+  .prose ol {
+    margin-block: 1rem;
+  }
+  .prose ul,
+  .prose ol {
+    padding-left: 1.4rem;
+  }
+  .prose li {
+    margin-block: 0.35rem;
+  }
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 0.3rem;
+    padding: 0.1em 0.35em;
+  }
+  .prose pre {
+    background: var(--color-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 0.6rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .prose pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+  }
+  .prose hr {
+    border: 0;
+    border-top: 1px solid var(--color-border);
+    margin-block: 2.5rem;
+  }
+  .prose blockquote {
+    border-left: 3px solid var(--color-accent);
+    margin-inline: 0;
+    padding-left: 1rem;
+    color: var(--color-muted);
+  }
+
+  /* Plain markdown tables — the ones that should stay tables. */
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.25rem;
+    font-size: 0.9375rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose th,
+  .prose td {
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose th {
+    background: var(--color-raised);
+    font-weight: 620;
+  }
+}

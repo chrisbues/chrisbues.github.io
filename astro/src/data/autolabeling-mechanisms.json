@@ -1,0 +1,410 @@
+{
+  "$comment": "Content, not code. Regenerate or hand-edit freely — the component renders whatever is here. States: yes | no | never | conditional | na. Optional `note` qualifies the state.",
+  "questions": [
+    { "key": "manual", "label": "Overrides manual labels?", "short": "Manual" },
+    { "key": "lower", "label": "Overrides auto-applied lower priority?", "short": "Lower priority" },
+    { "key": "higher", "label": "Overrides auto-applied higher priority?", "short": "Higher priority" },
+    { "key": "policy", "label": "Overrides default label from policy?", "short": "Default policy" }
+  ],
+  "mechanisms": [
+    {
+      "name": "Client-Side Auto-Labeling",
+      "platform": "M365 Core",
+      "location": "Word, Excel, PowerPoint, Outlook",
+      "how": "Real-time labeling as users create & edit documents or emails",
+      "basedOn": "SITs, Trainable Classifiers",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Can be automatic or recommended",
+        "User can accept/reject",
+        "Minimal delay",
+        "Exception: no action if file has sublabel from same parent when another sublabel from same parent matches"
+      ],
+      "doc": {
+        "text": "Configure auto-labeling for Office apps",
+        "url": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps"
+      }
+    },
+    {
+      "name": "Service-Side Auto-Labeling Policies",
+      "platform": "M365 Core",
+      "location": "SharePoint, OneDrive, Exchange Online (in-transit)",
+      "how": "Scans files at rest in SharePoint/OneDrive and emails in transit through Exchange",
+      "basedOn": "SITs, Trainable Classifiers, sharing options, file type, size, name, contains text",
+      "states": {
+        "manual": { "v": "yes" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Can run in simulation mode first",
+        "Exchange has optional \"always override\" setting",
+        "Additional conditions available per location"
+      ],
+      "doc": {
+        "text": "Configure auto-labeling policies for SharePoint, OneDrive, and Exchange",
+        "url": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-policies-for-sharepoint-onedrive-and-exchange"
+      }
+    },
+    {
+      "name": "Default Label from Publishing Policy",
+      "platform": "M365 Core",
+      "location": "Word, Excel, PowerPoint, Outlook, Power BI & Fabric",
+      "how": "Policy specifies default label for new/unlabeled content when created",
+      "basedOn": "Policy configuration",
+      "states": {
+        "manual": { "v": "never" },
+        "lower": { "v": "never" },
+        "higher": { "v": "never" },
+        "policy": { "v": "na" }
+      },
+      "notes": [
+        "TREATED AS AUTOMATICALLY APPLIED",
+        "Never overrides existing labels",
+        "Only applies to unlabeled content",
+        "Different behavior for files/email vs Power BI",
+        "Not recommended for encrypted labels"
+      ],
+      "doc": {
+        "text": "What label policies can do",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels#what-label-policies-can-do"
+      }
+    },
+    {
+      "name": "SharePoint Library Default Label",
+      "platform": "SharePoint",
+      "location": "SharePoint document libraries",
+      "how": "Location-based labeling applied to new/edited files in specific library",
+      "basedOn": "Location (no content inspection)",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Applied at library level",
+        "Takes a few minutes for uploads",
+        "Immediate in Office web",
+        "Files must contain content"
+      ],
+      "doc": {
+        "text": "Configure a default sensitivity label for a SharePoint document library",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-default-label"
+      }
+    },
+    {
+      "name": "Label-Based Extension to Downloaded Documents",
+      "platform": "SharePoint",
+      "location": "SharePoint Online",
+      "how": "Document library label extends encryption to downloaded files via user-defined permissions",
+      "basedOn": "Site/library label + encryption",
+      "states": {
+        "manual": { "v": "conditional", "note": "if existing label does not encrypt" },
+        "lower": { "v": "conditional" },
+        "higher": { "v": "conditional" },
+        "policy": { "v": "conditional" }
+      },
+      "notes": [
+        "Replaces labels that do not encrypt",
+        "Does not replace encrypted labels",
+        "Copilot can reference but not summarize files"
+      ],
+      "doc": {
+        "text": "Extend permissions to downloaded documents",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-extend-permissions"
+      }
+    },
+    {
+      "name": "Microsoft Syntex Document Understanding",
+      "platform": "SharePoint",
+      "location": "SharePoint document libraries",
+      "how": "AI models identify document types and apply configured labels",
+      "basedOn": "AI model recognition",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Model trained to recognize documents",
+        "Label configured in model settings",
+        "Honors label order/priority rules",
+        "Applies to Office files: .docx, .pptx, .xlsx"
+      ],
+      "doc": {
+        "text": "Apply a sensitivity label to a model in Microsoft Syntex",
+        "url": "https://learn.microsoft.com/en-us/microsoft-365/contentunderstanding/apply-a-sensitivity-label-to-a-model"
+      }
+    },
+    {
+      "name": "Email Inheritance from Attachments",
+      "platform": "Email",
+      "location": "Outlook (all platforms)",
+      "how": "Email inherits highest priority label from labeled document attachments",
+      "basedOn": "Attachment labels",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Physical file attachments only (not links)",
+        "Can be automatic or recommended",
+        "Can inherit encryption settings",
+        "Policy setting: \"Email inherits highest priority label from attachments\""
+      ],
+      "doc": {
+        "text": "Configure label inheritance from email attachments",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps#configure-label-inheritance-from-email-attachments"
+      }
+    },
+    {
+      "name": "Email Thread Label Inheritance",
+      "platform": "Email",
+      "location": "Outlook",
+      "how": "Label on email automatically applied to subsequent replies in thread",
+      "basedOn": "Previous email in thread",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Automatic on reply/forward",
+        "Appears in Activity Explorer as automatic labeling"
+      ],
+      "doc": {
+        "text": "Labeling activities — Sensitivity label applied",
+        "url": "https://learn.microsoft.com/en-us/purview/data-classification-activity-explorer-available-events#sensitivity-label-applied"
+      }
+    },
+    {
+      "name": "Encryption-Based Label Matching",
+      "platform": "Email",
+      "location": "Office apps (documents)",
+      "how": "When document has admin-defined encryption without label, Office assigns matching label",
+      "basedOn": "Matching encryption policy embedded in document",
+      "states": {
+        "manual": { "v": "conditional", "note": "can replace non-encrypted labels" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "conditional", "note": "varies" },
+        "policy": { "v": "yes" }
+      },
+      "notes": [
+        "Helps migrate from rights management templates",
+        "Common with encrypted email attachments",
+        "Works only within tenant"
+      ],
+      "doc": {
+        "text": "Encryption-based label matching for documents",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps#encryption-based-label-matching-for-documents"
+      }
+    },
+    {
+      "name": "Teams Meetings — Inheritance from Meeting Files",
+      "platform": "Teams",
+      "location": "Teams meetings",
+      "how": "Meeting inherits highest priority label from files shared in meeting (chat, Shared tab, Live share)",
+      "basedOn": "Shared file labels",
+      "states": {
+        "manual": { "v": "no", "note": "unless manual label has lower priority" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Policy setting: Apply inheritance between Teams meetings and artifacts",
+        "Can be automatic or recommended",
+        "Manually applied lower priority can be overridden",
+        "Notification sent to organizer before meeting starts"
+      ],
+      "doc": {
+        "text": "Configure sensitivity labels for Teams meetings",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-meetings#how-to-configure-a-sensitivity-label-to-protect-calendar-items-teams-meetings-and-chat"
+      }
+    },
+    {
+      "name": "Teams Container File Inheritance",
+      "platform": "Teams",
+      "location": "Teams-connected SharePoint sites",
+      "how": "Files inherit Team/channel label if unlabeled",
+      "basedOn": "Container label",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": ["Standard & private channels", "Container default behavior"],
+      "doc": {
+        "text": "Sensitivity labels in Microsoft Teams",
+        "url": "https://learn.microsoft.com/en-us/microsoftteams/sensitivity-labels"
+      }
+    },
+    {
+      "name": "Teams Meetings — Default Label from Policy",
+      "platform": "Teams",
+      "location": "Teams meetings, Outlook calendar events",
+      "how": "Default label applied to new meetings and calendar events",
+      "basedOn": "Policy configuration",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "na" }
+      },
+      "notes": [
+        "Policy setting: Apply a default label to meetings and calendar events",
+        "Outlook: applied to new and updated unlabeled events",
+        "Teams: applied to new events only, not updated events",
+        "Independent from email default label setting"
+      ],
+      "doc": {
+        "text": "Configure sensitivity labels for Teams meetings",
+        "url": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-meetings#how-to-configure-a-sensitivity-label-to-protect-calendar-items-teams-meetings-and-chat"
+      }
+    },
+    {
+      "name": "Power BI — Creation Inheritance",
+      "platform": "Power BI / Fabric",
+      "location": "Power BI Service",
+      "how": "New reports/dashboards automatically inherit label from parent semantic model/report",
+      "basedOn": "Parent item label",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Automatic on creation",
+        "Won't block creation if label can't be applied"
+      ],
+      "doc": {
+        "text": "Sensitivity label inheritance upon creation",
+        "url": "https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-security-sensitivity-label-overview#sensitivity-label-inheritance-upon-creation-of-new-content"
+      }
+    },
+    {
+      "name": "Power BI — Downstream Inheritance",
+      "platform": "Power BI / Fabric",
+      "location": "Power BI Service",
+      "how": "Label on semantic model/report propagates to downstream content",
+      "basedOn": "Parent item label",
+      "states": {
+        "manual": { "v": "never" },
+        "lower": { "v": "yes", "note": "never downgrades" },
+        "higher": { "v": "never" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Two modes: User Consent or Fully Automated",
+        "Limited to 80 downstream items",
+        "Never replaces with less restrictive label",
+        "Strictly enforces no-downgrade rule"
+      ],
+      "doc": {
+        "text": "Sensitivity label downstream inheritance",
+        "url": "https://learn.microsoft.com/en-us/fabric/governance/service-security-sensitivity-label-downstream-inheritance"
+      }
+    },
+    {
+      "name": "Power BI — Data Source Inheritance",
+      "platform": "Power BI / Fabric",
+      "location": "Power BI semantic models",
+      "how": "Semantic models inherit labels from labeled source data",
+      "basedOn": "Data source label",
+      "states": {
+        "manual": { "v": "never" },
+        "lower": { "v": "no" },
+        "higher": { "v": "never" },
+        "policy": { "v": "no" }
+      },
+      "notes": [
+        "Sources: Azure Synapse, Azure SQL, Excel on OneDrive/SharePoint",
+        "Most restrictive chosen if multiple sources",
+        "Occurs on connection and refresh",
+        "Desktop: banner recommends more restrictive label"
+      ],
+      "doc": {
+        "text": "Sensitivity label inheritance from data sources",
+        "url": "https://learn.microsoft.com/en-us/fabric/governance/service-security-sensitivity-label-inheritance-from-data-sources"
+      }
+    },
+    {
+      "name": "Fabric / Power BI Domain-Level Default Label",
+      "platform": "Power BI / Fabric",
+      "location": "Fabric domains",
+      "how": "Domain admin sets default label for workspaces in their domain",
+      "basedOn": "Domain configuration",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Applied when items created/updated in domain workspaces",
+        "Follows same override logic as other auto-labeling"
+      ],
+      "doc": {
+        "text": "Domain-level default sensitivity labels",
+        "url": "https://learn.microsoft.com/en-us/fabric/governance/domain-default-sensitivity-label"
+      }
+    },
+    {
+      "name": "Information Protection Scanner",
+      "platform": "Hybrid / On-Prem",
+      "location": "On-premises file shares, SharePoint Server 2013–2019",
+      "how": "Scheduled scans of on-premises files",
+      "basedOn": "SITs, Trainable Classifiers, or default labels",
+      "states": {
+        "manual": { "v": "no" },
+        "lower": { "v": "yes" },
+        "higher": { "v": "no" },
+        "policy": { "v": "yes", "note": "if higher priority" }
+      },
+      "notes": [
+        "Requires Windows Server + SQL Server",
+        "Discovery or automatic mode",
+        "Can apply default label to all files",
+        "Treat recommended as automatic option"
+      ],
+      "doc": {
+        "text": "Learn about the information protection scanner",
+        "url": "https://learn.microsoft.com/en-us/purview/deploy-scanner"
+      }
+    },
+    {
+      "name": "Defender for Cloud Apps",
+      "platform": "Cross-Platform",
+      "location": "Cloud apps monitored by Defender",
+      "how": "Session policies apply labels through cloud app monitoring",
+      "basedOn": "Session policy conditions",
+      "states": {
+        "manual": { "v": "na", "note": "not documented" },
+        "lower": { "v": "conditional", "note": "varies" },
+        "higher": { "v": "no" },
+        "policy": { "v": "conditional", "note": "varies" }
+      },
+      "notes": [
+        "Can detect and alert on label changes",
+        "Should be used as a secondary control — Purview is the primary solution for labeling"
+      ],
+      "doc": {
+        "text": "Integrate with Microsoft Purview for information protection",
+        "url": "https://learn.microsoft.com/en-us/defender-cloud-apps/azip-integration"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const notes = (await getCollection("notes", ({ data }) => !data.draft)).sort(
+  (a, b) =>
+    (b.data.tended ?? b.data.planted).valueOf() -
+    (a.data.tended ?? a.data.planted).valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+
+<BaseLayout
+  title="Chris Bues — Digital garden"
+  description="Notes on Microsoft Purview, Defender, and Entra."
+>
+  <p class="mb-8 max-w-2xl text-muted">
+    Notes on Microsoft security &amp; compliance — Purview, Defender, Entra.
+    Evergreen rather than chronological: things get revised in place rather than
+    decaying after publication.
+  </p>
+
+  <ul class="grid list-none gap-3 p-0">
+    {
+      notes.map((note) => (
+        <li class="rounded-xl border border-border p-4 transition-colors hover:border-accent">
+          <a href={`/${note.id}/`} class="block no-underline">
+            <div class="flex flex-wrap items-baseline gap-2">
+              <h2 class="text-lg font-semibold text-ink">{note.data.title}</h2>
+              <span class="text-xs text-muted">{note.data.maturity}</span>
+            </div>
+            {note.data.summary && (
+              <p class="mt-1 text-sm text-muted">{note.data.summary}</p>
+            )}
+            <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-muted">
+              {note.data.topics.map((t) => (
+                <span class="rounded-full border border-border px-2 py-0.5">
+                  {t}
+                </span>
+              ))}
+              <span class="ml-auto">
+                {note.data.tended
+                  ? `Tended ${fmt(note.data.tended)}`
+                  : `Planted ${fmt(note.data.planted)}`}
+              </span>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
