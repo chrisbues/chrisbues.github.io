@@ -12,6 +12,7 @@ hugo_stats.json
 /data/*
 !/data/trees/
 !/data/tables/
+!/data/viz/
 frontmatter.json
 /.github/instructions/
 /.github/pages-files/

@@ -33,3 +33,126 @@
     --hextra-cards-grid-cols: 2 !important;
   }
 }
+
+/* ============================================================
+   Data-viz components (sitviz)
+   Themed from Hextra's own tokens: accent derives from
+   --color-primary-*, dark mode keys off the .dark class that
+   Hextra puts on <html>. No private palette, no webfonts.
+   ============================================================ */
+.sv {
+  --sv-accent: var(--color-primary-600);
+  --sv-accent-soft: color-mix(in srgb, var(--color-primary-600) 10%, transparent);
+  --sv-surface: #fff;
+  --sv-surface-2: #f7f9f9;
+  --sv-line: #e2e8e8;
+  --sv-ink: #10181b;
+  --sv-ink-2: #45555c;
+  --sv-ink-3: #6f8188;
+  --sv-track: color-mix(in srgb, var(--color-primary-600) 18%, transparent);
+  --sv-good: #00875e;
+  --sv-warn: #a97f00;
+  --sv-crit: #c42b25;
+  --sv-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  margin: 1.5rem 0;
+}
+.dark .sv {
+  --sv-accent: var(--color-primary-400);
+  --sv-accent-soft: color-mix(in srgb, var(--color-primary-400) 14%, transparent);
+  --sv-surface: #161d20;
+  --sv-surface-2: #1b2427;
+  --sv-line: #2a3538;
+  --sv-ink: #e9efef;
+  --sv-ink-2: #a6b5b9;
+  --sv-ink-3: #7c8c91;
+  --sv-track: color-mix(in srgb, var(--color-primary-400) 22%, transparent);
+  --sv-good: #1e9e74;
+  --sv-warn: #b58c00;
+  --sv-crit: #d4463c;
+}
+
+/* stat tiles */
+.sv-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .5rem; }
+.sv-tile { background: var(--sv-surface); border: 1px solid var(--sv-line); border-radius: 8px; padding: .8rem .85rem; }
+.sv-tile b { font-family: var(--sv-mono); font-size: 1.5rem; line-height: 1; color: var(--sv-ink); font-weight: 500; }
+.sv-tile b small { font-size: .8rem; color: var(--sv-ink-3); }
+.sv-tile span { display: block; font-size: .72rem; color: var(--sv-ink-3); margin-top: .4rem; line-height: 1.35; }
+
+/* grade meter */
+.sv-meter { margin-top: 1rem; }
+.sv-meter-bar { display: flex; gap: 2px; height: 12px; margin: .5rem 0; }
+.sv-meter-bar i { display: block; border-radius: 2px; }
+.sv-meter-bar i:first-child { border-radius: 6px 2px 2px 6px; }
+.sv-meter-bar i:last-child { border-radius: 2px 6px 6px 2px; }
+.sv-key { display: flex; flex-wrap: wrap; gap: .7rem; font-size: .72rem; color: var(--sv-ink-3); }
+.sv-key span { display: flex; align-items: center; gap: .3rem; }
+.sv-key i { width: 8px; height: 8px; border-radius: 2px; }
+
+/* controls */
+.sv-controls { position: sticky; top: 0; z-index: 4; background: var(--sv-surface); padding: .7rem 0; margin-top: 1.2rem; }
+.sv-controls input, .sv-controls select {
+  width: 100%; font: inherit; font-size: .87rem; background: var(--sv-surface);
+  color: var(--sv-ink); border: 1px solid var(--sv-line); border-radius: 6px; padding: .5rem .65rem;
+}
+.sv-controls select { margin-top: .45rem; }
+.sv-chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+.sv-chip {
+  font: inherit; font-size: .73rem; font-weight: 600; cursor: pointer; background: var(--sv-surface);
+  color: var(--sv-ink-2); border: 1px solid var(--sv-line); border-radius: 20px; padding: .25rem .7rem;
+}
+.sv-chip[aria-pressed="true"] { background: var(--sv-accent); border-color: var(--sv-accent); color: #fff; }
+.dark .sv-chip[aria-pressed="true"] { color: #0a1013; }
+.sv-count { font-size: .72rem; color: var(--sv-ink-3); margin: .6rem 0 .35rem; }
+
+/* rows */
+.sv-rows { display: flex; flex-direction: column; gap: .4rem; }
+.sv-row { background: var(--sv-surface); border: 1px solid var(--sv-line); border-radius: 8px; overflow: hidden; }
+.sv-row > button {
+  width: 100%; display: grid; grid-template-columns: 1.9rem 1fr auto; gap: .6rem; align-items: center;
+  background: none; border: 0; cursor: pointer; text-align: left; font: inherit; color: inherit; padding: .7rem .75rem;
+}
+.sv-rk { font-family: var(--sv-mono); font-size: .78rem; color: var(--sv-ink-3); }
+.sv-cty { font-size: .68rem; letter-spacing: .05em; text-transform: uppercase; color: var(--sv-ink-3); }
+.sv-nm { font-size: .89rem; font-weight: 600; color: var(--sv-ink); line-height: 1.3; }
+.sv-grade {
+  font-family: var(--sv-mono); font-size: .8rem; width: 1.65rem; height: 1.65rem;
+  display: grid; place-items: center; border-radius: 5px; color: #fff;
+}
+.dark .sv-grade { color: #0a1013; }
+.sv-g-good { background: var(--sv-good); } .sv-g-warn { background: var(--sv-warn); } .sv-g-crit { background: var(--sv-crit); }
+.sv-risk { grid-column: 2 / 4; display: flex; gap: 1.1rem; padding: 0 .75rem .7rem; }
+.sv-met { flex: 1; min-width: 0; }
+.sv-met span { display: flex; justify-content: space-between; gap: .4rem; font-size: .66rem; color: var(--sv-ink-3); margin-bottom: .25rem; }
+.sv-met span b { font-family: var(--sv-mono); font-weight: 500; color: var(--sv-ink-2); }
+.sv-trk { display: block; height: 5px; background: var(--sv-track); border-radius: 3px; overflow: hidden; }
+.sv-trk i { display: block; height: 100%; background: var(--sv-accent); border-radius: 3px; }
+
+/* detail */
+.sv-det { border-top: 1px solid var(--sv-line); background: var(--sv-surface-2); padding: .8rem .75rem; display: none; }
+.sv-row.open .sv-det { display: block; }
+/* The component renders inside Hextra's prose container, whose styles win over
+   generic element selectors. Use non-semantic divs and reset inherited spacing
+   rather than fighting specificity. */
+.sv, .sv * { box-sizing: border-box; }
+/* Only <p> needs neutralising — Hextra's prose gives it a block margin.
+   Do NOT blanket-reset div/span here: `.sv div` (0,1,1) outranks the
+   component classes (0,1,0) and silently strips their padding. */
+.sv p { margin: 0; }
+.sv-kvs { margin-bottom: .7rem; }
+.sv-kv { display: grid; grid-template-columns: 1fr auto; gap: .8rem; align-items: baseline;
+  font-size: .78rem; padding: .17rem 0; }
+.sv-kv > span { color: var(--sv-ink-3); }
+.sv-kv > b { font-family: var(--sv-mono); font-weight: 500; color: var(--sv-ink); text-align: right; }
+.sv-h5 { font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--sv-ink-3); font-weight: 700; margin: .7rem 0 .25rem; }
+.sv-det p { font-size: .79rem; color: var(--sv-ink-2); margin: 0 0 .6rem; line-height: 1.5; }
+.sv-fix { border-left: 2px solid var(--sv-accent); padding-left: .6rem; margin-bottom: .55rem; }
+.sv-fix.none { border-left-color: var(--sv-good); }
+.sv-tag {
+  font-family: var(--sv-mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sv-accent); background: var(--sv-accent-soft); border-radius: 3px; padding: .1rem .35rem; margin-right: .35rem;
+}
+.sv-imp { font-family: var(--sv-mono); font-size: .62rem; text-transform: uppercase; color: var(--sv-ink-3); }
+.sv-ft { font-size: .8rem; font-weight: 600; color: var(--sv-ink); display: block; margin-top: .2rem; }
+.sv-ck { font-size: .75rem; color: var(--sv-ink-2); border-left: 3px solid var(--sv-warn); padding-left: .55rem; margin: .5rem 0; line-height: 1.45; }
+.sv-lk { display: inline-block; margin-top: .5rem; font-size: .75rem; color: var(--sv-accent); }

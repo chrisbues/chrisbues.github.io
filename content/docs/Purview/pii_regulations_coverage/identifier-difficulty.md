@@ -1,7 +1,6 @@
 ---
 title: Identifier Difficulty Ranking
 weight: 30
-gridjs: true
 tags:
   - Purview
   - DLP
@@ -18,7 +17,7 @@ So the useful question is not "does Purview support country X" but "what will su
 
 Sorted by false-positive risk — the noise problem. Sort by **FN risk** to find the SITs that silently miss data instead, or by **Difficulty** for overall tuning burden. Grades: **A** deployable as shipped, **F** needs substantial custom work.
 
-{{< gridjs-data data="pii_identifier_ranking" pagination="25" wide="full" fixedHeader="true" height="700px" >}}
+{{< sit-ranking data="sit_ranking" >}}
 
 ## What the columns mean
 

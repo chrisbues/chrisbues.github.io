@@ -1,0 +1,38 @@
+{{- /*
+  Interactive SIT ranking.
+
+  Usage:  {{< sit-ranking data="sit_ranking" >}}
+
+  Reads data/viz/<name>.json, emits it as an inline application/json island, and
+  loads the component script through Hugo Pipes (js.Build + fingerprint) so the
+  JS is bundled and cached once rather than re-inlined per page.
+
+  Styling lives in assets/css/custom.css and keys off Hextra's own tokens
+  (--color-primary-* and the .dark class), so the component follows the site
+  theme automatically.
+*/ -}}
+
+{{- $name := .Get "data" | default "sit_ranking" -}}
+{{- $data := index site.Data.viz $name -}}
+
+{{- if not $data -}}
+  <div class="gridjs-error">
+    <strong>sit-ranking:</strong> data file not found — <code>data/viz/{{ $name }}.json</code>
+  </div>
+{{- else -}}
+  <div class="sv" data-sv-ranking>
+    {{- /* safeJS is required: inside a <script> element Go's contextual
+           autoescaping would otherwise re-encode the JSON as a JS string
+           literal, and JSON.parse would receive "{\"rows\":…}" not {"rows":…}. */ -}}
+    <script type="application/json">{{ $data | jsonify | safeJS }}</script>
+    <noscript>
+      <p>This ranking needs JavaScript. The same data is published as
+      <a href="https://github.com/chrisbues/chrisbues.github.io/blob/main/data/viz/{{ $name }}.json">{{ $name }}.json</a>.</p>
+    </noscript>
+  </div>
+
+  {{- with resources.Get "js/sit-ranking.js" -}}
+    {{- $js := . | js.Build (dict "minify" hugo.IsProduction) | fingerprint -}}
+    <script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+  {{- end -}}
+{{- end -}}
